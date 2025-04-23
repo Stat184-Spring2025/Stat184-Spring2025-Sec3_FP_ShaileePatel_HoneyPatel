@@ -1,0 +1,44 @@
+---
+title: "Initial Code"
+author: "Honey Patel"
+date: "2025-04-22"
+output: html_document
+---
+
+```{r}
+# Load tidyverse
+#install.packages('tidyverse')
+library(tidyverse)
+
+# Read the original CSV files
+fastfood <- read_csv("https://raw.githubusercontent.com/Stat184-Spring2025/Stat184-Spring2025-Sec3_FP_ShaileePatel_HoneyPatel/refs/heads/main/fastfood.csv?token=GHSAT0AAAAAADCD5WI4RI6P2LKYIIPMFQ3Q2AH4PEA",show_col_types = FALSE)
+nutrition <- read_csv("https://raw.githubusercontent.com/Stat184-Spring2025/Stat184-Spring2025-Sec3_FP_ShaileePatel_HoneyPatel/refs/heads/main/Nutrition_Value_Dataset.csv?token=GHSAT0AAAAAADCD5WI56JGIP5BJTHPHDD5K2AH4P2Q",show_col_types = FALSE)
+
+# Clean the fastfood CSV
+fastfood_clean <- fastfood %>%
+  select(
+    Restaurant = restaurant,
+    Product = item,
+    Calories = calories,
+    Carbs = total_carb,
+    Fat = total_fat,
+    Cholesterol = cholesterol,
+    Protein = protein
+  )
+
+# Clean the second fast food CSV
+nutrition_clean <- nutrition %>%
+  select(
+    Restaurant = Company,
+    Product = Product,
+    Calories = `Energy (kCal)`,
+    Carbs = `Carbohydrates (g)`,
+    Fat = `Total Fat (g)`,
+    Cholesterol = `Cholesterol (mg)`,
+    Protein = `Protein (g)`
+  )
+# Combine the two cleaned datasets and save as new CSV
+combined_nutrition <- bind_rows(fastfood_clean, nutrition_clean)
+write_csv(combined_nutrition, "combined_nutrition_data.csv")
+```
+
