@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 title: "Initial Code"
 author: "Honey Patel"
@@ -11,8 +12,8 @@ output: html_document
 library(tidyverse)
 
 # Read the original CSV files
-fastfood <- read_csv("https://raw.githubusercontent.com/Stat184-Spring2025/Stat184-Spring2025-Sec3_FP_ShaileePatel_HoneyPatel/refs/heads/main/fastfood.csv?token=GHSAT0AAAAAADCD5WI4UDQNPCUR32LFJ2BY2AJS57A",show_col_types = FALSE)
-nutrition <- read_csv("https://raw.githubusercontent.com/Stat184-Spring2025/Stat184-Spring2025-Sec3_FP_ShaileePatel_HoneyPatel/refs/heads/main/Nutrition_Value_Dataset.csv?token=GHSAT0AAAAAADCD5WI4WZBWCBD6GHTIUVXW2AJS6JQ",show_col_types = FALSE)
+fastfood <- read_csv("https://raw.githubusercontent.com/Stat184-Spring2025/Stat184-Spring2025-Sec3_FP_ShaileePatel_HoneyPatel/refs/heads/main/fastfood.csv?token=GHSAT0AAAAAADCD5WI4JH2GMYL7OIE3H4C62AJTOKA",show_col_types = FALSE)
+nutrition <- read_csv("https://raw.githubusercontent.com/Stat184-Spring2025/Stat184-Spring2025-Sec3_FP_ShaileePatel_HoneyPatel/refs/heads/main/Nutrition_Value_Dataset.csv?token=GHSAT0AAAAAADCD5WI5PY5OT7QANTB372G22AJTN7Q",show_col_types = FALSE)
 
 # Clean the fastfood CSV
 fastfood_clean <- fastfood %>%
@@ -50,7 +51,7 @@ library(knitr)
 library(kableExtra)
 
 # Load the combined_nutrition_data.csv file 
-data <- read_csv("https://raw.githubusercontent.com/Stat184-Spring2025/Stat184-Spring2025-Sec3_FP_ShaileePatel_HoneyPatel/refs/heads/dev/combined_nutrition_data.csv?token=GHSAT0AAAAAADCD5WI5MRS24HEBWTAYNIXA2AJPAZA")
+data <- read_csv("https://raw.githubusercontent.com/Stat184-Spring2025/Stat184-Spring2025-Sec3_FP_ShaileePatel_HoneyPatel/refs/heads/dev/combined_nutrition_data.csv?token=GHSAT0AAAAAADCD5WI42MRE4SGBEZXIBDPA2AJTPBA")
 
 
 # Question 1 -----------------------------------------------------------
