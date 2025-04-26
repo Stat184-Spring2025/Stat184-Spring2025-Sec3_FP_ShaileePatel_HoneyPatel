@@ -1,12 +1,169 @@
-<<<<<<< HEAD
 ---
-title: "Initial Code"
-author: "Honey Patel, Shailee Patel"
-date: "2025-04-22"
-output: html_document
+title: "Fueling Your Workout: Fast-Food Chain Menu Analysis for Fitness Enthusiasts"
+subtitle: Final Project for Stat 184
+author: Honey Patel, Shailee Patel
+format:
+  pdf:
+    include-in-header: preamble.tex
+    toc: false
+    fig-align: center
+    cap-location: top
+    geometry:
+      - top=1in
+      - left=1in
+      - right=1in
+      - bottom=1in
+    code-overflow: wrap
+    code-block-font-size: 90%
 ---
 
-```{r}
+# Introduction
+
+Maintaining adequate protein intake is critical for fitness goals, including muscle repair and growth. However, when pressed for time, many turn to fast-food options, which vary widely in protein content. This report explores how popular fast-food chains compare in terms of protein, fat, and calories—guiding fitness-minded consumers toward better choices.
+
+# Data Provenance
+
+Our analysis draws on two publicly available datasets:
+
+1.  **fastfood.csv**:
+2.  **Nutrition_Value_Dataset.csv:**
+
+# FAIR and CARE Principles
+
+# Focused Attributes
+
+We concentrate on three key measures per menu item:
+
+-   **Calories (kCal)**: Total energy.
+-   **Fat (g)**: Total fat content.
+-   **Protein (g)**: Protein content.
+
+# Derived Attribute
+
+-   **Protein-to-Fat Ratio**: Protein (g) ÷ Fat (g) to identify lean options.
+
+# Analysis and Findings
+
+## 1. Calorie Distribution by Restaurant
+
+A box plot (Figure 1) shows the spread, median, and outliers of calorie counts across each chain. This highlights variation—for example, KFC has wider calorie ranges due to high-calorie menu items.
+
+```{r,echo=FALSE,warning= FALSE,message=FALSE}
+#Question 1 -----------------------------------------------------------
+#How does calorie count vary by restaurant?
+#Goal: Reveal distribution of restaurants using calorie count (spread, outliers)
+#Selection of visualization: Box Plot
+#Rationale: Shows median, IQR, and outliers at once. We care about variation in data, e.g., whether Restaurant A has a few extremely high-calorie outliers vs. Restaurant B’s consistently mid-range menu—a box plot (or violin plot) is by far the more informative choice.
+
+ggplot(data, aes(x = Restaurant, y = Calories, fill = Restaurant)) +
+  geom_boxplot() +
+  coord_flip() +                        # horizontal boxes for readability
+  theme_minimal() +
+  theme(
+    legend.position = "none",           # drop the legend
+    axis.title.x     = element_text(), 
+    axis.title.y     = element_blank()
+  ) +
+  labs(
+    x = NULL,
+    y = "Calories",
+    title = "Calorie Distribution by Restaurant"
+  )
+```
+
+## 2. Average Calories, Fat, and Protein
+
+Table 1 summarizes per-chain averages. Bar charts (Figures 2–4) compare each metric:
+
+-   Figure 2: Avg Calories
+-   Figure 3: Avg Fat (g)
+-   Figure 4: Avg Protein (g)
+
+Fitness-focused readers can see that Chick Fil-A and KFC rank high in average protein, while Starbucks and Domino's offer lower calorie and fat options.
+
+```{r,echo=FALSE,warning= FALSE,message=FALSE}
+#2. Bar chart: Average Calories
+ggplot(restaurant_stats, aes(
+    x = avg_calories,
+    y = reorder(Restaurant, avg_calories)
+  )) +
+  geom_col(fill = "#FFA07A") +
+  labs(
+    title = "Figure 2. Average Calories by Restaurant",
+    x     = "Avg Calories",
+    y     = NULL
+  ) +
+  theme_minimal()
+
+#3. Bar chart: Average Fat
+ggplot(restaurant_stats, aes(
+    x = avg_fat,
+    y = reorder(Restaurant, avg_fat)
+  )) +
+  geom_col(fill = "#20B2AA") +
+  labs(
+    title = "Figure 3. Average Fat (g) by Restaurant",
+    x     = "Avg Fat (g)",
+    y     = NULL
+  ) +
+  theme_minimal()
+
+#4. Bar chart: Average Protein
+restaurant_stats %>%
+  filter(!is.na(avg_protein)) %>%
+  ggplot(aes(
+    x = avg_protein,
+    y = reorder(Restaurant, avg_protein)
+  )) +
+  geom_col(fill = "#778899") +
+  labs(
+    title = "Figure 4. Average Protein (g) by Restaurant",
+    x = "Avg Protein (g)",
+    y = NULL
+  ) +
+  theme_minimal()
+```
+
+Table 1 shows exact values:
+
+```{r,echo=FALSE,warning= FALSE,message=FALSE}
+#Question 2 -----------------------------------------------------------
+#Do different restaurants differ in how healthy their items are (based on calories, fat, and protein)?
+#Goal: Compare central tendencies of Calories, Fat, and Protein across restaurants to assess relative “healthiness.”
+#Selection of visualization: Summary table + grouped bar chart
+#Rationale: 
+# - Table gives exact average values for each metric  
+# - Grouped bar chart lets you visually compare multiple metrics side-by-side
+
+#1. Compute per-restaurant averages
+restaurant_stats <- data %>%
+  group_by(Restaurant) %>%
+  summarise(
+    avg_calories = mean(Calories),
+    avg_fat      = mean(Fat),
+    avg_protein  = mean(Protein)
+  )
+restaurant_stats %>%
+  kable(
+    digits    = 1,
+    booktabs  = TRUE,
+    col.names = c("Restaurant", "Avg Calories", "Avg Fat (g)", "Avg Protein (g)"),
+    caption   = "Table 1: Average Calories, Fat, and Protein by Restaurant"
+  ) %>%
+  kable_styling(
+    latex_options = c("striped", "hold_position"),  # adds zebra stripes & fixes float
+    full_width    = FALSE,
+    position      = "center"
+  )
+```
+
+## 3. Highest Average Protein
+
+## 4. Top Protein-to-Fat Ratio Menu Items
+
+# Code Appendix
+
+```{r,codeAppend, ref.label=knitr::all_labels(),echo = TRUE, eval = FALSE}
 #Load required library
 library(tidyverse)
 
@@ -54,9 +211,6 @@ combined_nutrition <- bind_rows(fastfood_clean, nutrition_clean)
 #Save to a new CSV file
 write_csv(combined_nutrition, "combined_nutrition_data.csv")
 
-```
-
-```{r}
 #Load require libraries
 library(tidyverse)
 library(RColorBrewer)
@@ -110,18 +264,11 @@ restaurant_stats <- data %>%
     avg_fat      = mean(Fat),
     avg_protein  = mean(Protein)
   )
+
 restaurant_stats %>%
-  kable(
-    digits    = 1,
-    booktabs  = TRUE,
-    col.names = c("Restaurant", "Avg Calories", "Avg Fat (g)", "Avg Protein (g)"),
-    caption   = "Table 1: Average Calories, Fat, and Protein by Restaurant"
-  ) %>%
-  kable_styling(
-    latex_options = c("striped", "hold_position"),  # adds zebra stripes & fixes float
-    full_width    = FALSE,
-    position      = "center"
-  )
+  filter(Restaurant=="Burger King") %>%
+  pull(avg_protein)
+
 #2. Bar chart: Average Calories
 ggplot(restaurant_stats, aes(
     x = avg_calories,
@@ -129,7 +276,7 @@ ggplot(restaurant_stats, aes(
   )) +
   geom_col(fill = "#FFA07A") +
   labs(
-    title = "Figure 2. Average Calories by Restaurant",
+    title = "Average Calories by Restaurant",
     x     = "Avg Calories",
     y     = NULL
   ) +
@@ -142,7 +289,7 @@ ggplot(restaurant_stats, aes(
   )) +
   geom_col(fill = "#20B2AA") +
   labs(
-    title = "Figure 3. Average Fat (g) by Restaurant",
+    title = "Average Fat (g) by Restaurant",
     x     = "Avg Fat (g)",
     y     = NULL
   ) +
@@ -157,17 +304,11 @@ restaurant_stats %>%
   )) +
   geom_col(fill = "#778899") +
   labs(
-    title = "Figure 4. Average Protein (g) by Restaurant",
+    title = "Average Protein (g) by Restaurant",
     x = "Avg Protein (g)",
     y = NULL
   ) +
   theme_minimal()
-```
-```{r}
-#Load required libraries
-library(dplyr)
-library(knitr)
-library(kableExtra)
 
 #Question 3 -----------------------------------------------------------
 #Which restaurant offers the highest average protein per menu item?
