@@ -1,20 +1,20 @@
+<<<<<<< HEAD
 ---
 title: "Initial Code"
-author: "Honey Patel"
+author: "Honey Patel, Shailee Patel"
 date: "2025-04-22"
 output: html_document
 ---
 
 ```{r}
-# Load tidyverse
-#install.packages('tidyverse')
+#Load required library
 library(tidyverse)
 
-# Read the original CSV files
-fastfood <- read_csv("https://raw.githubusercontent.com/Stat184-Spring2025/Stat184-Spring2025-Sec3_FP_ShaileePatel_HoneyPatel/refs/heads/main/fastfood.csv?token=GHSAT0AAAAAADCD5WI4RI6P2LKYIIPMFQ3Q2AH4PEA",show_col_types = FALSE)
-nutrition <- read_csv("https://raw.githubusercontent.com/Stat184-Spring2025/Stat184-Spring2025-Sec3_FP_ShaileePatel_HoneyPatel/refs/heads/main/Nutrition_Value_Dataset.csv?token=GHSAT0AAAAAADCD5WI56JGIP5BJTHPHDD5K2AH4P2Q",show_col_types = FALSE)
+#Read the original CSVs
+fastfood <- read_csv("https://raw.githubusercontent.com/Stat184-Spring2025/Stat184-Spring2025-Sec3_FP_ShaileePatel_HoneyPatel/refs/heads/main/fastfood.csv")
+nutrition <- read_csv("https://raw.githubusercontent.com/Stat184-Spring2025/Stat184-Spring2025-Sec3_FP_ShaileePatel_HoneyPatel/refs/heads/main/Nutrition_Value_Dataset.csv")
 
-# Clean the fastfood CSV
+#Clean the fast food CSV
 fastfood_clean <- fastfood %>%
   select(
     Restaurant = restaurant,
@@ -24,9 +24,14 @@ fastfood_clean <- fastfood %>%
     Fat = total_fat,
     Cholesterol = cholesterol,
     Protein = protein
+  ) %>%
+  mutate(
+    Restaurant = str_to_title(Restaurant),
+    Restaurant = str_replace_all(Restaurant, "[^[:alnum:] ]", ""),
+    Restaurant = str_squish(Restaurant)
   )
 
-# Clean the second fast food CSV
+#Clean the second nutrition CSV
 nutrition_clean <- nutrition %>%
   select(
     Restaurant = Company,
@@ -36,9 +41,161 @@ nutrition_clean <- nutrition %>%
     Fat = `Total Fat (g)`,
     Cholesterol = `Cholesterol (mg)`,
     Protein = `Protein (g)`
+  ) %>%
+  mutate(
+    Restaurant = str_to_title(Restaurant),
+    Restaurant = str_replace_all(Restaurant, "[^[:alnum:] ]", ""),
+    Restaurant = str_squish(Restaurant)
   )
-# Combine the two cleaned datasets and save as new CSV
+
+#Combine the cleaned datasets
 combined_nutrition <- bind_rows(fastfood_clean, nutrition_clean)
+
+#Save to a new CSV file
 write_csv(combined_nutrition, "combined_nutrition_data.csv")
+
 ```
 
+```{r}
+#Load require libraries
+library(tidyverse)
+library(RColorBrewer)
+library(knitr)
+library(kableExtra)
+
+#Load the combined_nutrition_data.csv file 
+data <- read_csv("https://raw.githubusercontent.com/Stat184-Spring2025/Stat184-Spring2025-Sec3_FP_ShaileePatel_HoneyPatel/refs/heads/dev/combined_nutrition_data.csv")
+
+#Clean data further to prevent errors in visuali
+data <- data %>%
+  mutate(Restaurant = str_to_title(Restaurant)) %>%
+  mutate(Restaurant = str_replace_all(Restaurant, "[^[:alnum:] ]", "")) %>%
+  mutate(Restaurant = str_squish(Restaurant)) %>%
+  filter(!is.na(Protein))
+
+#Question 1 -----------------------------------------------------------
+#How does calorie count vary by restaurant?
+#Goal: Reveal distribution of restaurants using calorie count (spread, outliers)
+#Selection of visualization: Box Plot
+#Rationale: Shows median, IQR, and outliers at once. We care about variation in data, e.g., whether Restaurant A has a few extremely high-calorie outliers vs. Restaurant B’s consistently mid-range menu—a box plot (or violin plot) is by far the more informative choice.
+
+ggplot(data, aes(x = Restaurant, y = Calories, fill = Restaurant)) +
+  geom_boxplot() +
+  coord_flip() +                        # horizontal boxes for readability
+  theme_minimal() +
+  theme(
+    legend.position = "none",           # drop the legend
+    axis.title.x     = element_text(), 
+    axis.title.y     = element_blank()
+  ) +
+  labs(
+    x = NULL,
+    y = "Calories",
+    title = "Calorie Distribution by Restaurant"
+  )
+
+#Question 2 -----------------------------------------------------------
+#Do different restaurants differ in how healthy their items are (based on calories, fat, and protein)?
+#Goal: Compare central tendencies of Calories, Fat, and Protein across restaurants to assess relative “healthiness.”
+#Selection of visualization: Summary table + grouped bar chart
+#Rationale: 
+# - Table gives exact average values for each metric  
+# - Grouped bar chart lets you visually compare multiple metrics side-by-side
+
+#1. Compute per-restaurant averages
+restaurant_stats <- data %>%
+  group_by(Restaurant) %>%
+  summarise(
+    avg_calories = mean(Calories),
+    avg_fat      = mean(Fat),
+    avg_protein  = mean(Protein)
+  )
+
+restaurant_stats %>%
+  filter(Restaurant=="Burger King") %>%
+  pull(avg_protein)
+
+#2. Bar chart: Average Calories
+ggplot(restaurant_stats, aes(
+    x = avg_calories,
+    y = reorder(Restaurant, avg_calories)
+  )) +
+  geom_col(fill = "#FFA07A") +
+  labs(
+    title = "Average Calories by Restaurant",
+    x     = "Avg Calories",
+    y     = NULL
+  ) +
+  theme_minimal()
+
+#3. Bar chart: Average Fat
+ggplot(restaurant_stats, aes(
+    x = avg_fat,
+    y = reorder(Restaurant, avg_fat)
+  )) +
+  geom_col(fill = "#20B2AA") +
+  labs(
+    title = "Average Fat (g) by Restaurant",
+    x     = "Avg Fat (g)",
+    y     = NULL
+  ) +
+  theme_minimal()
+
+#4. Bar chart: Average Protein
+restaurant_stats %>%
+  filter(!is.na(avg_protein)) %>%
+  ggplot(aes(
+    x = avg_protein,
+    y = reorder(Restaurant, avg_protein)
+  )) +
+  geom_col(fill = "#778899") +
+  labs(
+    title = "Average Protein (g) by Restaurant",
+    x = "Avg Protein (g)",
+    y = NULL
+  ) +
+  theme_minimal()
+```
+```{r}
+#Load required libraries
+library(dplyr)
+library(knitr)
+library(kableExtra)
+
+#Question 3 -----------------------------------------------------------
+#Which restaurant offers the highest average protein per menu item?
+#Goal: Compare protein content across brands to identify which offer the most protein-heavy meals.
+#Selection of visualization: Horizontal bar chart
+#Rationale: Shows how different restaurants stack up in terms of lean/high-protein offerings.
+
+data %>%
+  group_by(Restaurant) %>% 
+  summarize(Avg_Protein = mean(Protein, na.rm = TRUE)) %>% #group by restaurant and calulate average without missing values
+  mutate(Avg_Protein = ifelse(is.na(Avg_Protein), 0, Avg_Protein)) %>% #replace missing values with 0
+  ggplot(aes(x = reorder(Restaurant, Avg_Protein), y = Avg_Protein)) + #create bar graph
+  geom_col(fill = "#4682B4") +
+  coord_flip() +
+  labs(
+    title = "Average Protein per Menu Item by Restaurant",
+    x = "Restaurant",
+    y = "Avg Protein (g)"
+  ) +
+  theme_minimal()
+
+#Question 4 -----------------------------------------------------------
+#Which menu items offer the best protein-to-fat ratio by restaurant?
+#Goal: Help consumers identify lean, efficient options at each restaurant.
+#Selection of visualization: Frequency table showing top 3 menu items per restaurant.
+#Rationale: Nutrient-dense items with low fat and high protein are often desired for health/performance, this chart filters for that.
+
+data %>%
+  mutate(PF_Ratio = Protein / Fat) %>% #create a new column for protein-to-fat ratio
+  filter(Fat > 0, !is.na(Protein), !is.na(Fat)) %>% #remove any missing values
+  group_by(Restaurant) %>% 
+  slice_max(order_by = PF_Ratio, n = 3, with_ties = FALSE) %>% #group by restaurant and select top 3 items
+  ungroup() %>%
+  select(Restaurant, Product, Calories, Protein, Fat, PF_Ratio) %>%
+  arrange(Restaurant, desc(PF_Ratio)) %>% #keep relevant columns for summary table and sort via descending PF ratio
+  kable(caption = "Top 3 Menu Items per Restaurant by Protein-to-Fat Ratio", digits = 2) %>% #create table
+  kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE)
+```

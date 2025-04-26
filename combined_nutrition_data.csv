@@ -56,33 +56,33 @@ Mcdonalds,Premium Bacon Ranch Salad w/ Crispy Chicken,490,28,28,95,33
 Mcdonalds,Premium Southwest Salad w/o Chicken,220,26,10,15,8
 Mcdonalds,Premium Southwest Salad w/ Grilled Chicken,350,27,12,110,37
 Mcdonalds,Premium Southwest Salad w/ Crispy Chicken,520,46,25,75,28
-Chick Fil-A,Chargrilled Chicken Club Sandwich,430,37,16,85,37
-Chick Fil-A,Chargrilled Chicken Sandwich,310,36,6,55,29
-Chick Fil-A,Chick-n-Slider,270,26,11,45,16
-Chick Fil-A,1 Piece Chick-n-Strips,120,6,6,25,11
-Chick Fil-A,2 Piece Chick-n-Strips,230,13,12,55,22
-Chick Fil-A,3 Piece Chick-n-Strips,350,22,17,70,28
-Chick Fil-A,4 piece Chick-n-Strips,470,29,23,90,37
-Chick Fil-A,Chicken Deluxe,500,42,23,75,31
-Chick Fil-A,4 piece Chicken Nuggets,130,5,6,40,14
-Chick Fil-A,6 piece Chicken Nuggets,190,7,9,55,21
-Chick Fil-A,8 piece Chicken Nuggets,260,9,12,70,28
-Chick Fil-A,12 piece Chicken Nuggets,390,14,18,115,41
-Chick Fil-A,30 piece Chicken Nuggets,970,35,46,285,103
-Chick Fil-A,Chicken Salad Sandwich,490,55,19,80,28
-Chick Fil-A,Chicken Sandwich,440,40,19,60,28
-Chick Fil-A,4 Piece Grilled Chicken Nuggets,70,1,2,35,13
-Chick Fil-A,6 Piece Grilled Chicken Nuggets,110,2,3,50,19
-Chick Fil-A,8 piece Grilled Chicken Nuggets,140,2,4,70,25
-Chick Fil-A,12 Piece Grilled Chicken Nuggets,210,3,5,100,38
-Chick Fil-A,Spicy Grilled Chicken Sub Sandwich,430,47,12,85,33
-Chick Fil-A,Regular Grilled Chicken Sub Sandwich,450,48,13,75,34
-Chick Fil-A,Smokehouse BBQ Bacon Sandwich,500,46,18,95,33
-Chick Fil-A,Spicy Chicken Sandwich,450,41,19,60,29
-Chick Fil-A,Spicy Deluxe,540,43,25,80,34
-Chick Fil-A,Chargrilled Chicken Cool Wrap,350,29,14,60,37
-Chick Fil-A,Chicken Enchiladas Meal Kit,860,70,47,100,39
-Chick Fil-A,Chicken Parmesan Meal Kit,720,65,31,120,48
+Chick FilA,Chargrilled Chicken Club Sandwich,430,37,16,85,37
+Chick FilA,Chargrilled Chicken Sandwich,310,36,6,55,29
+Chick FilA,Chick-n-Slider,270,26,11,45,16
+Chick FilA,1 Piece Chick-n-Strips,120,6,6,25,11
+Chick FilA,2 Piece Chick-n-Strips,230,13,12,55,22
+Chick FilA,3 Piece Chick-n-Strips,350,22,17,70,28
+Chick FilA,4 piece Chick-n-Strips,470,29,23,90,37
+Chick FilA,Chicken Deluxe,500,42,23,75,31
+Chick FilA,4 piece Chicken Nuggets,130,5,6,40,14
+Chick FilA,6 piece Chicken Nuggets,190,7,9,55,21
+Chick FilA,8 piece Chicken Nuggets,260,9,12,70,28
+Chick FilA,12 piece Chicken Nuggets,390,14,18,115,41
+Chick FilA,30 piece Chicken Nuggets,970,35,46,285,103
+Chick FilA,Chicken Salad Sandwich,490,55,19,80,28
+Chick FilA,Chicken Sandwich,440,40,19,60,28
+Chick FilA,4 Piece Grilled Chicken Nuggets,70,1,2,35,13
+Chick FilA,6 Piece Grilled Chicken Nuggets,110,2,3,50,19
+Chick FilA,8 piece Grilled Chicken Nuggets,140,2,4,70,25
+Chick FilA,12 Piece Grilled Chicken Nuggets,210,3,5,100,38
+Chick FilA,Spicy Grilled Chicken Sub Sandwich,430,47,12,85,33
+Chick FilA,Regular Grilled Chicken Sub Sandwich,450,48,13,75,34
+Chick FilA,Smokehouse BBQ Bacon Sandwich,500,46,18,95,33
+Chick FilA,Spicy Chicken Sandwich,450,41,19,60,29
+Chick FilA,Spicy Deluxe,540,43,25,80,34
+Chick FilA,Chargrilled Chicken Cool Wrap,350,29,14,60,37
+Chick FilA,Chicken Enchiladas Meal Kit,860,70,47,100,39
+Chick FilA,Chicken Parmesan Meal Kit,720,65,31,120,48
 Sonic,Hatch Green Chile Cheeseburger,710,44,43,120,35
 Sonic,Jalapeno Burger,640,42,37,100,31
 Sonic,Jr. Burger,340,34,17,35,15
@@ -745,246 +745,246 @@ Starbucks,Pecan Tart,330,39,18,75,4
 Starbucks,Greek Yogurt & Honey Parfait,310,36,12,30,13
 Starbucks,Strawberry Blueberry Yogurt Parfait,310,51,5,10,10
 Starbucks,Seasonal Fruit Cup,80,20,0,0,1
-McDonalds,McVeggie™ Burger,402.05,56.54,13.83,2.49,10.24
-McDonalds,McAloo Tikki Burger®,339.52,50.27,11.31,1.47,8.5
-McDonalds,McSpicy™ Paneer Burger,652.76,52.33,39.45,21.85,20.29
-McDonalds,Spicy Paneer Wrap,674.68,59.27,39.1,40.93,20.96
-McDonalds,American Veg Burger,512.17,56.96,23.45,25.24,15.3
-McDonalds,Veg Maharaja Mac,832.67,93.84,37.94,36.19,24.17
-McDonalds,Green Chilli Aloo Naan,356.09,46.36,15.08,9.45,7.91
-McDonalds,Pizza Puff,228.21,24.79,11.44,5.17,5.45
-McDonalds,Mc chicken Burger,400.8,47.98,15.7,31.17,15.66
-McDonalds,FILLET-O-FISH Burger,348.11,38.85,14.16,32.83,15.44
-McDonalds,Mc Spicy Chicken Burger,451.92,46.08,19.36,66.04,21.46
-McDonalds,Spicy Chicken Wrap,567.19,57.06,26.89,87.63,23.74
-McDonalds,Chicken Maharaja Mac,689.12,55.39,36.69,81.49,34
-McDonalds,American Chicken Burger,446.95,38.54,22.94,47.63,20.29
-McDonalds,Chicken Kebab Burger,357.05,47.9,14.02,1.51,8.64
-McDonalds,Green Chilli Kebab naan,230.95,31.06,9.32,8.74,5.67
-McDonalds,Mc Egg Masala Burger,290.42,32.89,12.27,213.09,12.45
-McDonalds,Mc Egg Burger for Happy Meal,282.98,31.32,12.21,213.09,12.29
-McDonalds,Ghee Rice with Mc Spicy Fried Chicken 1 pc,720.3,77.47,29.2,31.32,26.91
-McDonalds,McSpicy Fried Chicken 1 pc,248.76,12.7,14.29,31.11,17.33
-McDonalds,4 piece Chicken McNuggets,169.68,10.5,9.54,24.66,10.03
-McDonalds,6 piece Chicken McNuggets,254.52,15.74,14.3,36.99,15.04
-McDonalds,9 piece Chicken McNuggets,381.77,23.62,21.46,55.48,22.56
-McDonalds,2 piece Chicken Strips,164.44,2.68,12.38,30.1,10.17
-McDonalds,3 piece Chicken Strips,246.65,4.02,18.57,45.15,15.26
-McDonalds,5 piece Chicken Strips,411.09,0.73,28.54,6.7,25.43
-McDonalds,Regular Fries,224.59,27.08,10.39,0.77,3.38
-McDonalds,Medium Fries,317.92,38.34,14.7,1.09,4.79
-McDonalds,Large Fries,449.17,54.16,20.77,1.54,6.76
-McDonalds,Regular Wedges,204.65,28.74,7.15,0.97,3.97
-McDonalds,Medium Wedges,280.05,39.33,9.79,1.33,5.44
-McDonalds,Large Wedges,387.76,54.46,13.55,1.84,7.53
-McDonalds,L1 Coffee,6.8,1.7,0,0,0
-McDonalds,L1 Coffee with milk,35.8,1.6,2,6,1
-McDonalds,Double Chocochips Muffin,341.68,40.13,17.28,15.96,5.13
-McDonalds,Vanilla Chocochips Muffin,329.29,40.13,15.46,78.52,4.48
-McDonalds,Veg McMuffin,309.35,38.86,11.78,25.31,10.22
-McDonalds,Double Cheese McMuffin,273.78,29,12.82,37.75,9.58
-McDonalds,Spicy Egg McMuffin,278.27,31.37,11.81,212.61,11.49
-McDonalds,Sausage Mc Muffin,281.44,28.62,10.81,53.02,16.25
-McDonalds,Sausage Mc Muffin with egg,290.42,28.87,15.94,264.8,22.46
-McDonalds,Egg McMuffin,283.46,28.12,12.31,233.3,14.05
-McDonalds,Hot Cake with maple syrup,432.98,68.01,14.02,28.14,8.6
-McDonalds,Hash Brown,140.29,15.63,7.32,0.64,1.93
-McDonalds,Espresso,12.87,2.55,0.03,0.27,0.52
-McDonalds,Espresso Machiato,44.98,4.97,2.02,6.27,2.09
-McDonalds,Americano (S),12.87,2.55,0.03,0.27,0.52
-McDonalds,Americano (R),23.07,4.57,0.05,0.48,0.94
-McDonalds,Americano (L),26.71,5.3,0.06,0.55,1.09
-McDonalds,Cappuccino (S),125.25,11.02,7.01,21.27,6.02
-McDonalds,Cappuccino (R),183.61,16.67,10.02,30.48,8.79
-McDonalds,Cappuccino (L),219.36,19.81,12.03,36.55,10.51
-McDonalds,Latte (S),147.72,12.71,8.41,25.47,7.12
-McDonalds,Latte (R),190.03,17.15,10.42,31.68,9.1
-McDonalds,Latte (L),232.2,20.77,12.82,38.95,11.14
-McDonalds,Flat White (S),166.99,14.16,9.6,29.07,8.06
-McDonalds,Flat White (R),215.72,19.08,12.02,36.48,10.36
-McDonalds,Flat White (L),251.47,22.22,14.02,42.55,12.08
-McDonalds,Mocha (S),185.85,22.59,8.2,24.43,7.15
-McDonalds,Mocha (R),244,31.72,9.91,29.52,8.99
-McDonalds,Mocha (L),302.02,40.04,12.01,35.67,10.88
-McDonalds,Babycino,143.5,22.85,4.38,12.27,3.87
-McDonalds,Hot Chocolate (S),239.42,37.08,7.77,22.03,6.73
-McDonalds,Hot Chocolate (R),296.81,48.41,8.76,24.59,7.7
-McDonalds,Hot Chocolate (L),383.29,58.43,12.84,36.67,11.01
-McDonalds,Premium Dark Hot Chocolate,214.21,33.04,5.96,14.73,6.15
-McDonalds,Double Dark Hot Chocolate,255.78,41.29,6.32,14.83,6.87
-McDonalds,English Breakfast (S),9.93,0.28,0.28,2.79,0.56
-McDonalds,English Breakfast (R),11.75,0.33,0.33,3.3,0.66
-McDonalds,English Breakfast (L),16.23,0.46,0.46,4.56,0.91
-McDonalds,Moroccon Mint Green Tea (S),6.25,2.79,0.28,2.79,0.33
-McDonalds,Moroccon Mint Green Tea (R),7.39,3.3,0.33,3.3,0.4
-McDonalds,Moroccon Mint Green Tea (L),10.21,4.56,0.46,4.56,0.55
-McDonalds,Strawberry Green Tea (S),7.03,2.79,0.28,2.79,0.47
-McDonalds,Strawberry Green Tea (R),8.32,3.3,0.33,3.3,0.56
-McDonalds,Strawberry Green Tea (L),11.49,4.56,0.46,4.56,0.78
-McDonalds,Lemon Ice Tea,121.86,30.59,0.17,1.65,0.27
-McDonalds,Strawberry Ice Tea,94.95,24.17,0.16,1.57,0.24
-McDonalds,Green Apple Ice Tea,94.94,24.17,0.16,1.57,0.24
-McDonalds,Iced Coffee,185.34,31.88,4.45,12.13,4.36
-McDonalds,Cold Coffee Frappe,331.17,45.39,14.73,9.18,4.98
-McDonalds,Mocha Frappe,397.98,60.93,15.01,9.42,5.49
-McDonalds,Chocolate Oreo Frappe,481.11,72.51,18.89,9.36,6.03
-McDonalds,Strawberry Shake,255.51,44.07,7.44,8.39,3.67
-McDonalds,Chocolate Shake,270.9,46.76,7.7,8.39,4.16
-McDonalds,Mango Smoothie,231.44,46.25,3.63,9.89,3.21
-McDonalds,Mixed Berry Smoothie,235.43,47.16,3.59,9.99,3.33
-McDonalds,Raw Mango Cooler,102.38,25.18,0.04,0.4,0.14
-McDonalds,Mix Berry Cooler,103.85,25.56,0.04,0.4,0.16
-McDonalds,Sweet Lime Beverage,128.21,31.72,0.08,0,0.07
-McDonalds,Iced Americano,150.85,26.01,3.57,9.76,3.59
-McDonalds,American Mud Pie Shake,398.19,64.75,12.77,10.89,5.67
-McDonalds,Soft serve cone,85.73,15.23,1.82,4.75,1.99
-McDonalds,McSwirl ChocoDip,160.14,20.92,7.14,5.71,2.71
-McDonalds,Regular Soft Serve: Hot Fudge,121.64,19.11,4.02,5.85,2.25
-McDonalds,Medium Soft Serve: Hot Fudge,197.45,30.42,6.87,8.55,3.49
-McDonalds,Regular Soft Serve: Strawberry,100.99,19.78,1.77,4.85,1.54
-McDonalds,Medium Soft Serve: Strawberry,156.14,31.77,2.36,6.55,2.05
-McDonalds,Regular Soft Serve: Brownie with Hot Fudge,205.26,35.26,5.45,6.04,3.2
-McDonalds,Medium Soft Serve: Brownie with Hot Fudge,311.39,55.24,7.46,7.78,4.65
-McDonalds,Regular Blackforest,237.89,43.42,5.47,6.19,3.22
-McDonalds,Medium Blackforest,429.95,79.04,9.76,9.23,5.42
-McDonalds,Small McFlurry - Oreo,116.36,18.69,3.7,4.8,2.05
-McDonalds,Regular McFlurry - Oreo,209.39,33.42,6.81,8,3.58
-McDonalds,American Triple Cheese Chicken,457.94,37.45,22.65,71.23,24.43
-McDonalds,American Triple Cheese Veg,524.69,56.24,23.16,48.74,19.54
-McDonalds,Cheese Lava Burger,671.06,74.25,33.48,33.21,14.99
-McDonalds,Chicken Cheese Lava Burger,834.36,76.03,45.18,73.11,27.37
-McDonalds,Chunky Chipotle American Burger Chicken,641.36,46.24,31.51,110.37,39.47
-McDonalds,McSpicy Premium Chicken Burger,622.25,43.6,34.65,302.61,31.49
-McDonalds,McSpicy Premium Veg Burger,634.71,46,39.21,43.68,22.44
-McDonalds,Piri piri Mc Spicy Veg Burger,517.98,58.87,24.53,8.1,11.97
-McDonalds,Cheesy Veg Nuggets (6pc),252.29,23.6,13.09,20.03,8.48
-McDonalds,Cheesy Veg Nuggets (9pc),378.43,35.4,19.63,30.05,12.72
-McDonalds,Small Coca-Cola,109.56,27.39,0,0,0
-McDonalds,Medium Coca-Cola,151.36,37.84,0,0,0
-McDonalds,Large Coca-Cola,217.36,54.34,0,0,0
-McDonalds,Small Fanta Oragne,129.48,32.37,0,0,0
-McDonalds,Medium Fanta Orange,178.88,44.72,0,0,0
-McDonalds,Large Fanta Oragne,256.88,64.22,0,0,0
-McDonalds,Small Thums-up,99.6,24.9,0,0,0
-McDonalds,Medium Thums-up,137.6,34.4,0,0,0
-McDonalds,Large Thums-up,197.6,49.4,0,0,0
-McDonalds,Small Sprite,119.52,29.88,0,0,0
-McDonalds,Medium Sprite,165.12,41.28,0,0,0
-McDonalds,Large Sprite,237.12,59.28,0,0,0
-McDonalds,Coke Float,138.76,29.22,1.75,4.7,1.52
-McDonalds,Fanta Float,151.56,32.42,1.75,4.7,1.52
-McDonalds,Sprite Float,145.16,30.82,1.75,4.7,1.52
-McDonalds,Coke Zero Can,0.99,0,0,0,0
-McDonalds,Vedica Natural Mineral Water,0,0,0,0,0
-McDonalds,Mustard diping sauce,81.18,7.24,5.57,0.29,0.52
-McDonalds,BBQ diping sauce,54.89,12.36,0.49,0.25,0.26
-McDonalds,Chilli Sauce,8.07,1.99,0.01,0.1,0.03
-McDonalds,Piri Piri Mix,17.13,2.5,0.36,0.05,0.51
-McDonalds,Tomato Ketchup Sachets,11.23,2.63,23.45,0.08,0.08
-McDonalds,Maple Syrup,86.4,21.6,0,0.3,0
-McDonalds,Cheese Slice,51.03,0.72,3.99,13.43,3.06
-McDonalds,Sweet Corn,45.08,7.55,1,2,1.47
-McDonalds,Mixed Fruit Beverage,72.25,18,0.02,0.01,0.65
-KFC,Hot Wings 2 pc,267.1,17.1,16.7,23,12.1
-KFC,Veg Strips 4pc,280.5,32.4,13.6,17,7
-KFC,Hot Wings 4 Pc,534.3,34.2,33.4,46,24.2
-KFC,Popcorn Reg,272,18,15.6,20,15
-KFC,Popcorn Med,374,24.7,21.4,28,20.6
-KFC,Popcorn Lrg,578,38.2,33.1,44,31.8
-KFC,Boneless Strips 3pc,358.6,20.7,18.6,24,27
-KFC,Boneless Strips 6pc,717.2,41.3,37.3,49,54.1
-KFC,Veg Biryani,512.4,74.5,19.3,30,9.7
-KFC,Classic chicken biryani,586.5,56.4,27.4,34,28.4
-KFC,Popcorn Chicken,587.4,69.7,24.4,28,23.4
-KFC,"Smoky Chicken
+Mcdonalds,McVeggie™ Burger,402.05,56.54,13.83,2.49,10.24
+Mcdonalds,McAloo Tikki Burger®,339.52,50.27,11.31,1.47,8.5
+Mcdonalds,McSpicy™ Paneer Burger,652.76,52.33,39.45,21.85,20.29
+Mcdonalds,Spicy Paneer Wrap,674.68,59.27,39.1,40.93,20.96
+Mcdonalds,American Veg Burger,512.17,56.96,23.45,25.24,15.3
+Mcdonalds,Veg Maharaja Mac,832.67,93.84,37.94,36.19,24.17
+Mcdonalds,Green Chilli Aloo Naan,356.09,46.36,15.08,9.45,7.91
+Mcdonalds,Pizza Puff,228.21,24.79,11.44,5.17,5.45
+Mcdonalds,Mc chicken Burger,400.8,47.98,15.7,31.17,15.66
+Mcdonalds,FILLET-O-FISH Burger,348.11,38.85,14.16,32.83,15.44
+Mcdonalds,Mc Spicy Chicken Burger,451.92,46.08,19.36,66.04,21.46
+Mcdonalds,Spicy Chicken Wrap,567.19,57.06,26.89,87.63,23.74
+Mcdonalds,Chicken Maharaja Mac,689.12,55.39,36.69,81.49,34
+Mcdonalds,American Chicken Burger,446.95,38.54,22.94,47.63,20.29
+Mcdonalds,Chicken Kebab Burger,357.05,47.9,14.02,1.51,8.64
+Mcdonalds,Green Chilli Kebab naan,230.95,31.06,9.32,8.74,5.67
+Mcdonalds,Mc Egg Masala Burger,290.42,32.89,12.27,213.09,12.45
+Mcdonalds,Mc Egg Burger for Happy Meal,282.98,31.32,12.21,213.09,12.29
+Mcdonalds,Ghee Rice with Mc Spicy Fried Chicken 1 pc,720.3,77.47,29.2,31.32,26.91
+Mcdonalds,McSpicy Fried Chicken 1 pc,248.76,12.7,14.29,31.11,17.33
+Mcdonalds,4 piece Chicken McNuggets,169.68,10.5,9.54,24.66,10.03
+Mcdonalds,6 piece Chicken McNuggets,254.52,15.74,14.3,36.99,15.04
+Mcdonalds,9 piece Chicken McNuggets,381.77,23.62,21.46,55.48,22.56
+Mcdonalds,2 piece Chicken Strips,164.44,2.68,12.38,30.1,10.17
+Mcdonalds,3 piece Chicken Strips,246.65,4.02,18.57,45.15,15.26
+Mcdonalds,5 piece Chicken Strips,411.09,0.73,28.54,6.7,25.43
+Mcdonalds,Regular Fries,224.59,27.08,10.39,0.77,3.38
+Mcdonalds,Medium Fries,317.92,38.34,14.7,1.09,4.79
+Mcdonalds,Large Fries,449.17,54.16,20.77,1.54,6.76
+Mcdonalds,Regular Wedges,204.65,28.74,7.15,0.97,3.97
+Mcdonalds,Medium Wedges,280.05,39.33,9.79,1.33,5.44
+Mcdonalds,Large Wedges,387.76,54.46,13.55,1.84,7.53
+Mcdonalds,L1 Coffee,6.8,1.7,0,0,0
+Mcdonalds,L1 Coffee with milk,35.8,1.6,2,6,1
+Mcdonalds,Double Chocochips Muffin,341.68,40.13,17.28,15.96,5.13
+Mcdonalds,Vanilla Chocochips Muffin,329.29,40.13,15.46,78.52,4.48
+Mcdonalds,Veg McMuffin,309.35,38.86,11.78,25.31,10.22
+Mcdonalds,Double Cheese McMuffin,273.78,29,12.82,37.75,9.58
+Mcdonalds,Spicy Egg McMuffin,278.27,31.37,11.81,212.61,11.49
+Mcdonalds,Sausage Mc Muffin,281.44,28.62,10.81,53.02,16.25
+Mcdonalds,Sausage Mc Muffin with egg,290.42,28.87,15.94,264.8,22.46
+Mcdonalds,Egg McMuffin,283.46,28.12,12.31,233.3,14.05
+Mcdonalds,Hot Cake with maple syrup,432.98,68.01,14.02,28.14,8.6
+Mcdonalds,Hash Brown,140.29,15.63,7.32,0.64,1.93
+Mcdonalds,Espresso,12.87,2.55,0.03,0.27,0.52
+Mcdonalds,Espresso Machiato,44.98,4.97,2.02,6.27,2.09
+Mcdonalds,Americano (S),12.87,2.55,0.03,0.27,0.52
+Mcdonalds,Americano (R),23.07,4.57,0.05,0.48,0.94
+Mcdonalds,Americano (L),26.71,5.3,0.06,0.55,1.09
+Mcdonalds,Cappuccino (S),125.25,11.02,7.01,21.27,6.02
+Mcdonalds,Cappuccino (R),183.61,16.67,10.02,30.48,8.79
+Mcdonalds,Cappuccino (L),219.36,19.81,12.03,36.55,10.51
+Mcdonalds,Latte (S),147.72,12.71,8.41,25.47,7.12
+Mcdonalds,Latte (R),190.03,17.15,10.42,31.68,9.1
+Mcdonalds,Latte (L),232.2,20.77,12.82,38.95,11.14
+Mcdonalds,Flat White (S),166.99,14.16,9.6,29.07,8.06
+Mcdonalds,Flat White (R),215.72,19.08,12.02,36.48,10.36
+Mcdonalds,Flat White (L),251.47,22.22,14.02,42.55,12.08
+Mcdonalds,Mocha (S),185.85,22.59,8.2,24.43,7.15
+Mcdonalds,Mocha (R),244,31.72,9.91,29.52,8.99
+Mcdonalds,Mocha (L),302.02,40.04,12.01,35.67,10.88
+Mcdonalds,Babycino,143.5,22.85,4.38,12.27,3.87
+Mcdonalds,Hot Chocolate (S),239.42,37.08,7.77,22.03,6.73
+Mcdonalds,Hot Chocolate (R),296.81,48.41,8.76,24.59,7.7
+Mcdonalds,Hot Chocolate (L),383.29,58.43,12.84,36.67,11.01
+Mcdonalds,Premium Dark Hot Chocolate,214.21,33.04,5.96,14.73,6.15
+Mcdonalds,Double Dark Hot Chocolate,255.78,41.29,6.32,14.83,6.87
+Mcdonalds,English Breakfast (S),9.93,0.28,0.28,2.79,0.56
+Mcdonalds,English Breakfast (R),11.75,0.33,0.33,3.3,0.66
+Mcdonalds,English Breakfast (L),16.23,0.46,0.46,4.56,0.91
+Mcdonalds,Moroccon Mint Green Tea (S),6.25,2.79,0.28,2.79,0.33
+Mcdonalds,Moroccon Mint Green Tea (R),7.39,3.3,0.33,3.3,0.4
+Mcdonalds,Moroccon Mint Green Tea (L),10.21,4.56,0.46,4.56,0.55
+Mcdonalds,Strawberry Green Tea (S),7.03,2.79,0.28,2.79,0.47
+Mcdonalds,Strawberry Green Tea (R),8.32,3.3,0.33,3.3,0.56
+Mcdonalds,Strawberry Green Tea (L),11.49,4.56,0.46,4.56,0.78
+Mcdonalds,Lemon Ice Tea,121.86,30.59,0.17,1.65,0.27
+Mcdonalds,Strawberry Ice Tea,94.95,24.17,0.16,1.57,0.24
+Mcdonalds,Green Apple Ice Tea,94.94,24.17,0.16,1.57,0.24
+Mcdonalds,Iced Coffee,185.34,31.88,4.45,12.13,4.36
+Mcdonalds,Cold Coffee Frappe,331.17,45.39,14.73,9.18,4.98
+Mcdonalds,Mocha Frappe,397.98,60.93,15.01,9.42,5.49
+Mcdonalds,Chocolate Oreo Frappe,481.11,72.51,18.89,9.36,6.03
+Mcdonalds,Strawberry Shake,255.51,44.07,7.44,8.39,3.67
+Mcdonalds,Chocolate Shake,270.9,46.76,7.7,8.39,4.16
+Mcdonalds,Mango Smoothie,231.44,46.25,3.63,9.89,3.21
+Mcdonalds,Mixed Berry Smoothie,235.43,47.16,3.59,9.99,3.33
+Mcdonalds,Raw Mango Cooler,102.38,25.18,0.04,0.4,0.14
+Mcdonalds,Mix Berry Cooler,103.85,25.56,0.04,0.4,0.16
+Mcdonalds,Sweet Lime Beverage,128.21,31.72,0.08,0,0.07
+Mcdonalds,Iced Americano,150.85,26.01,3.57,9.76,3.59
+Mcdonalds,American Mud Pie Shake,398.19,64.75,12.77,10.89,5.67
+Mcdonalds,Soft serve cone,85.73,15.23,1.82,4.75,1.99
+Mcdonalds,McSwirl ChocoDip,160.14,20.92,7.14,5.71,2.71
+Mcdonalds,Regular Soft Serve: Hot Fudge,121.64,19.11,4.02,5.85,2.25
+Mcdonalds,Medium Soft Serve: Hot Fudge,197.45,30.42,6.87,8.55,3.49
+Mcdonalds,Regular Soft Serve: Strawberry,100.99,19.78,1.77,4.85,1.54
+Mcdonalds,Medium Soft Serve: Strawberry,156.14,31.77,2.36,6.55,2.05
+Mcdonalds,Regular Soft Serve: Brownie with Hot Fudge,205.26,35.26,5.45,6.04,3.2
+Mcdonalds,Medium Soft Serve: Brownie with Hot Fudge,311.39,55.24,7.46,7.78,4.65
+Mcdonalds,Regular Blackforest,237.89,43.42,5.47,6.19,3.22
+Mcdonalds,Medium Blackforest,429.95,79.04,9.76,9.23,5.42
+Mcdonalds,Small McFlurry - Oreo,116.36,18.69,3.7,4.8,2.05
+Mcdonalds,Regular McFlurry - Oreo,209.39,33.42,6.81,8,3.58
+Mcdonalds,American Triple Cheese Chicken,457.94,37.45,22.65,71.23,24.43
+Mcdonalds,American Triple Cheese Veg,524.69,56.24,23.16,48.74,19.54
+Mcdonalds,Cheese Lava Burger,671.06,74.25,33.48,33.21,14.99
+Mcdonalds,Chicken Cheese Lava Burger,834.36,76.03,45.18,73.11,27.37
+Mcdonalds,Chunky Chipotle American Burger Chicken,641.36,46.24,31.51,110.37,39.47
+Mcdonalds,McSpicy Premium Chicken Burger,622.25,43.6,34.65,302.61,31.49
+Mcdonalds,McSpicy Premium Veg Burger,634.71,46,39.21,43.68,22.44
+Mcdonalds,Piri piri Mc Spicy Veg Burger,517.98,58.87,24.53,8.1,11.97
+Mcdonalds,Cheesy Veg Nuggets (6pc),252.29,23.6,13.09,20.03,8.48
+Mcdonalds,Cheesy Veg Nuggets (9pc),378.43,35.4,19.63,30.05,12.72
+Mcdonalds,Small Coca-Cola,109.56,27.39,0,0,0
+Mcdonalds,Medium Coca-Cola,151.36,37.84,0,0,0
+Mcdonalds,Large Coca-Cola,217.36,54.34,0,0,0
+Mcdonalds,Small Fanta Oragne,129.48,32.37,0,0,0
+Mcdonalds,Medium Fanta Orange,178.88,44.72,0,0,0
+Mcdonalds,Large Fanta Oragne,256.88,64.22,0,0,0
+Mcdonalds,Small Thums-up,99.6,24.9,0,0,0
+Mcdonalds,Medium Thums-up,137.6,34.4,0,0,0
+Mcdonalds,Large Thums-up,197.6,49.4,0,0,0
+Mcdonalds,Small Sprite,119.52,29.88,0,0,0
+Mcdonalds,Medium Sprite,165.12,41.28,0,0,0
+Mcdonalds,Large Sprite,237.12,59.28,0,0,0
+Mcdonalds,Coke Float,138.76,29.22,1.75,4.7,1.52
+Mcdonalds,Fanta Float,151.56,32.42,1.75,4.7,1.52
+Mcdonalds,Sprite Float,145.16,30.82,1.75,4.7,1.52
+Mcdonalds,Coke Zero Can,0.99,0,0,0,0
+Mcdonalds,Vedica Natural Mineral Water,0,0,0,0,0
+Mcdonalds,Mustard diping sauce,81.18,7.24,5.57,0.29,0.52
+Mcdonalds,BBQ diping sauce,54.89,12.36,0.49,0.25,0.26
+Mcdonalds,Chilli Sauce,8.07,1.99,0.01,0.1,0.03
+Mcdonalds,Piri Piri Mix,17.13,2.5,0.36,0.05,0.51
+Mcdonalds,Tomato Ketchup Sachets,11.23,2.63,23.45,0.08,0.08
+Mcdonalds,Maple Syrup,86.4,21.6,0,0.3,0
+Mcdonalds,Cheese Slice,51.03,0.72,3.99,13.43,3.06
+Mcdonalds,Sweet Corn,45.08,7.55,1,2,1.47
+Mcdonalds,Mixed Fruit Beverage,72.25,18,0.02,0.01,0.65
+Kfc,Hot Wings 2 pc,267.1,17.1,16.7,23,12.1
+Kfc,Veg Strips 4pc,280.5,32.4,13.6,17,7
+Kfc,Hot Wings 4 Pc,534.3,34.2,33.4,46,24.2
+Kfc,Popcorn Reg,272,18,15.6,20,15
+Kfc,Popcorn Med,374,24.7,21.4,28,20.6
+Kfc,Popcorn Lrg,578,38.2,33.1,44,31.8
+Kfc,Boneless Strips 3pc,358.6,20.7,18.6,24,27
+Kfc,Boneless Strips 6pc,717.2,41.3,37.3,49,54.1
+Kfc,Veg Biryani,512.4,74.5,19.3,30,9.7
+Kfc,Classic chicken biryani,586.5,56.4,27.4,34,28.4
+Kfc,Popcorn Chicken,587.4,69.7,24.4,28,23.4
+Kfc,"Smoky Chicken
 Biryani",509.5,64,18.4,20,22.4
-KFC,Veg Zinger Burger,623,83.4,25.7,28,14.5
-KFC,"Chicken
+Kfc,Veg Zinger Burger,623,83.4,25.7,28,14.5
+Kfc,"Chicken
 Zinger Burger",563.1,57.1,26.6,28,26.6
-KFC,Spicy Zinger,433.2,46.2,15.6,28,26.6
-KFC,Classic Veg Crisper,342.2,54.6,27.6,30,8.9
-KFC,Spicy Veg Crisper,367.5,59,18.9,22,9.2
-KFC,Classic Non Veg Crisper,450.6,52.2,18.6,19,18.7
-KFC,Spicy Non Veg Crisper,393.7,56.8,9.3,12,20.7
-KFC,Tandoori Zinger Burger,999.9,68.5,32.3,33,27.4
-KFC,"Mixed Zinger Doubles( 1 ch Zinger+1 Tandoori
+Kfc,Spicy Zinger,433.2,46.2,15.6,28,26.6
+Kfc,Classic Veg Crisper,342.2,54.6,27.6,30,8.9
+Kfc,Spicy Veg Crisper,367.5,59,18.9,22,9.2
+Kfc,Classic Non Veg Crisper,450.6,52.2,18.6,19,18.7
+Kfc,Spicy Non Veg Crisper,393.7,56.8,9.3,12,20.7
+Kfc,Tandoori Zinger Burger,999.9,68.5,32.3,33,27.4
+Kfc,"Mixed Zinger Doubles( 1 ch Zinger+1 Tandoori
 Zinger)",1562.9,62.8,29.5,31,54
-KFC,2 Classic veg Crispers,684.4,54.6,27.6,30,17.7
-KFC,2 Classic Chicken Crisper,787.4,56.8,9.3,12,41.3
-KFC,Double Down burger,588.7,33.8,33.7,40,37.6
-KFC,1 pc,264.7,12.9,16.6,23,15.9
-KFC,2 pc,529.4,25.8,33.2,47,31.9
-KFC,4 pc,1058.8,25.8,33.2,47,63.7
-KFC,6 Pc,1588.2,38.8,49.8,70,95.6
-KFC,8 pc Bucket,2117.5,34.5,44.2,62,127.4
-KFC,5 Pc Fried Leg,1440,42.6,41.3,56,89.3
-KFC,10 Pc Fried Leg,2880,85.1,82.6,112,178.6
-KFC,1 pc,174.9,8,6.4,9,21.3
-KFC,2 pc,349.7,16.1,12.8,18,42.6
-KFC,4 pc,699.4,32.1,25.5,36,85.3
-KFC,5 PC,874.3,20.1,16,22,106.6
-KFC,6 Pc,1049.1,24.1,19.2,27,127.9
-KFC,8 pc Bucket,1398.8,21.4,17,24,170.5
-KFC,"Chick & Share Bucket: Xtra
+Kfc,2 Classic veg Crispers,684.4,54.6,27.6,30,17.7
+Kfc,2 Classic Chicken Crisper,787.4,56.8,9.3,12,41.3
+Kfc,Double Down burger,588.7,33.8,33.7,40,37.6
+Kfc,1 pc,264.7,12.9,16.6,23,15.9
+Kfc,2 pc,529.4,25.8,33.2,47,31.9
+Kfc,4 pc,1058.8,25.8,33.2,47,63.7
+Kfc,6 Pc,1588.2,38.8,49.8,70,95.6
+Kfc,8 pc Bucket,2117.5,34.5,44.2,62,127.4
+Kfc,5 Pc Fried Leg,1440,42.6,41.3,56,89.3
+Kfc,10 Pc Fried Leg,2880,85.1,82.6,112,178.6
+Kfc,1 pc,174.9,8,6.4,9,21.3
+Kfc,2 pc,349.7,16.1,12.8,18,42.6
+Kfc,4 pc,699.4,32.1,25.5,36,85.3
+Kfc,5 PC,874.3,20.1,16,22,106.6
+Kfc,6 Pc,1049.1,24.1,19.2,27,127.9
+Kfc,8 pc Bucket,1398.8,21.4,17,24,170.5
+Kfc,"Chick & Share Bucket: Xtra
 Large Popcorn",1156,38.2,33.1,44,63.6
-KFC,"Chick & Share Bucket: 5 pc
+Kfc,"Chick & Share Bucket: 5 pc
 Hot & Crispy",1323.5,32.3,41.5,58,79.6
-KFC,Chick & Share Bucket: 10 pc Strips,1195.4,34.5,31.1,41,90.1
-KFC,"Dips Bucket (12 Pc + 4
+Kfc,Chick & Share Bucket: 10 pc Strips,1195.4,34.5,31.1,41,90.1
+Kfc,"Dips Bucket (12 Pc + 4
 Dips)",1434.5,27.6,24.9,33,108.1
-KFC,Mingles Bucket,1269.4,46.8,35.9,48,62.3
-KFC,"Friendship Bucket DI/TA(3pc HC+3pc HW+3pc Strips +Med
+Kfc,Mingles Bucket,1269.4,46.8,35.9,48,62.3
+Kfc,"Friendship Bucket DI/TA(3pc HC+3pc HW+3pc Strips +Med
 Popcorn)",1022.6,24.4,21.9,15,34.9
-KFC,Big Eight ( 4pc smoky+ 4pc HC),1758.2,27.9,30.6,43,149
-KFC,"Friendship Bucket DL(3pc HC+3pc HW+3pc Strips + Large
+Kfc,Big Eight ( 4pc smoky+ 4pc HC),1758.2,27.9,30.6,43,149
+Kfc,"Friendship Bucket DL(3pc HC+3pc HW+3pc Strips + Large
 Popcorn)",2131.4,41.1,42.2,58,124.8
-KFC,"12 for 350
+Kfc,"12 for 350
 (12 BS + 4
 dips) on Wednesdays",1434.5,27.6,24.9,33,108.1
-KFC,"10 for 550
+Kfc,"10 for 550
 (10 pc HC)
 on Wednesdays",2382.2,38.8,49.8,70,143.3
-KFC,"Triple Treat (4 HC + 4
+Kfc,"Triple Treat (4 HC + 4
 Smoky + 6 Boneless
 Strips)",2475.4,41.7,43.1,59,203
-KFC,"Super Sixes (4 HC, 6 HW,
+Kfc,"Super Sixes (4 HC, 6 HW,
 8 Strips)",2816.5,39.5,41.5,57,172.1
-KFC,"7up Krush
+Kfc,"7up Krush
 Lime",81.9,4.1,0,0,20.4
-KFC,"Sparkling
+Kfc,"Sparkling
 Vanilla Blue)",120.9,6,0,0,30.1
-KFC,"(Virgin
+Kfc,"(Virgin
 Mojito/",120.4,6,0,0,30.1
-KFC,Regular Fries,224.1,27.5,10.4,13,5
-KFC,Medium Fries,298.8,36.7,13.9,18,6.7
-KFC,Large Fries,403.3,49.6,18.8,24,9.1
-KFC,"Pepsi
+Kfc,Regular Fries,224.1,27.5,10.4,13,5
+Kfc,Medium Fries,298.8,36.7,13.9,18,6.7
+Kfc,Large Fries,403.3,49.6,18.8,24,9.1
+Kfc,"Pepsi
 Regular",141.9,36,0,0,0
-KFC,"Mirinda
+Kfc,"Mirinda
 Regular",181.5,45.5,0,0,0
-KFC,"7 Up
+Kfc,"7 Up
 Regular",155.1,38.6,0,0,0
-KFC,"Dew
+Kfc,"Dew
 Regular",161.7,40.6,0,0,0
-KFC,"Dynamite
+Kfc,"Dynamite
 Spicy Mayo",77.4,3.4,7,5,0.2
-KFC,"Creamy Veg
+Kfc,"Creamy Veg
 Mayo",73.9,2.5,7,5,0.2
-KFC,Tandoori Masala Mayo,73.8,3.5,6.5,5,0.3
-KFC,"Zesty thousand
+Kfc,Tandoori Masala Mayo,73.8,3.5,6.5,5,0.3
+Kfc,"Zesty thousand
 Island Dip",72.3,3.6,6.3,5,0.3
-KFC,"Nashvillle
+Kfc,"Nashvillle
 Dip",30.2,7.1,0.2,5,0.1
-KFC,"Nashville Sauce Bottle
+Kfc,"Nashville Sauce Bottle
 -225 g",150.8,7.1,0.2,5,1.1
-KFC,"Dynamite Spicy Mayo bottle -200
+Kfc,"Dynamite Spicy Mayo bottle -200
 g",774,3.4,7,5,2
-KFC,Pepsi,129,21.8,0,0,0
-KFC,7Up,138,23.4,0,0,0
-KFC,Mirinda,165,27.6,0,0,0
-KFC,Pepsi Pet,215,36.3,0,0,0
-KFC,Pepsi Black,0,0,0,0,0
-KFC,Red Bull,112.5,22,0,0,0
+Kfc,Pepsi,129,21.8,0,0,0
+Kfc,7Up,138,23.4,0,0,0
+Kfc,Mirinda,165,27.6,0,0,0
+Kfc,Pepsi Pet,215,36.3,0,0,0
+Kfc,Pepsi Black,0,0,0,0,0
+Kfc,Red Bull,112.5,22,0,0,0
 Dominos,MARGHERITA REGULAR,138.5,20.5,3.2,65.60000000000001,6.8
 Dominos,MARGHERITA MEDIUM,184.3,21.3,4.3,91.59,9.1
 Dominos,MARGHERITA LARGE,256.4,38,6,228,12.1
