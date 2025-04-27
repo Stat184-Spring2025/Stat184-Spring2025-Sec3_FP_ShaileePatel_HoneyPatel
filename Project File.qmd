@@ -25,22 +25,35 @@ Maintaining adequate protein intake is critical for fitness goals, including mus
 
 Our analysis draws on two publicly available datasets:
 
-1.  **fastfood.csv**:
-2.  **Nutrition_Value_Dataset.csv:**
+1.  **fastfood.csv**:Nutritional data (calories, carbohydrates, fats, protein) for menu items from major U.S. fast-food chains, sourced from [Fast Food Nutrition Dataset](https://www.kaggle.com/datasets/ulrikthygepedersen/fastfood-nutrition/data).
+2.  **Nutrition_Value_Dataset.csv**: Additional fast-food menu data, including newer items and broader restaurant coverage, sourced from [Fast Food Joint Nutrition Values Dataset](https://www.kaggle.com/datasets/rakkesharv/fast-food-joint-nutrition-values-dataset).
+
+These datasets were merged after cleaning to create a comprehensive database for analysis. The cases in our data represent individual menu items across various restaurant chains.
 
 # FAIR and CARE Principles
 
-# Focused Attributes
+Our project follows the FAIR principles by:
+
+-   **Findable**: We used publicly available datasets with clear metadata.
+
+-   **Accessible**: Files are hosted in open formats such as CSV without any access restrictions.
+
+-   **Interoperable**: All data columns follow standard nutritional labeling (i.e. Calories, Fat, Protein).
+
+-   **Reusable**: Our cleaning steps are documented and allow for others to reuse the combined, cleaned dataset.
+
+We have also made sure that the CARE principles are ensured. The data used in our project is solely for educational purposes with attention given to responsibly interpreting its context. In presenting our findings, we have made a point to avoid misrepresenting the fast-food chains involved as we recognize the importance of maintaining ethical standards when working with publicly available data.
+
+# Focused and Derived Attributes
 
 We concentrate on three key measures per menu item:
 
--   **Calories (kCal)**: Total energy.
--   **Fat (g)**: Total fat content.
--   **Protein (g)**: Protein content.
+-   **Calories (kCal)**: Total energy per item (original attribute from dataset).
+-   **Fat (g)**: Total fat content per item (original attribute).
+-   **Protein (g)**: Total protein content per item (original attribute).
+-   **Protein-to-Fat Ratio (PF Ratio)**: A newly derived attribute, calculated as Protein divided by Fat which is used to identify lean protein options.
 
-# Derived Attribute
-
--   **Protein-to-Fat Ratio**: Protein (g) ÷ Fat (g) to identify lean options.
+These attributes allow us to assess the nutritional quality of menu items and make recommendations suited to fitness-focused consumers.
 
 # Analysis and Findings
 
@@ -127,7 +140,7 @@ restaurant_stats %>%
   theme_minimal()
 ```
 
-Table 1 shows each bars' exact values:
+Table 1 shows each bars' **exact** values:
 
 ```{r,echo=FALSE,warning= FALSE,message=FALSE}
 #Question 2 -----------------------------------------------------------
@@ -184,9 +197,13 @@ data %>%
 ## 4. Ranking Protein-Fat Ratios Per Restaurants
 
 Table 2 summarizes the **top three** menu items from each restaurant based on their protein-to-fat ratio.\
-This helps fitness-focused consumers identify lean menu choices that offer the most protein with the least fat. Table 3 highlights the **single best** menu item for each restaurant based on the highest protein-to-fat ratio and then ranks it compared to other restaurants. This provides clear recommendations for consumers seeking maximum protein with minimal fat intake.
+This helps fitness-focused consumers quickly identify lean menu choices that offer the most protein with the least fat.
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(kableExtra)
+library(dplyr)
+
 #4. Ranking Protein-Fat Ratios Per Restaurants
 data <- data %>% #Compute protein-fat ratio
   mutate(PF_Ratio = Protein / Fat)
@@ -211,6 +228,14 @@ top3_pf_items %>% #display the results as a table
     full_width = FALSE,
     position = "center"
   )
+```
+
+Table 3 then highlights the **single best** menu item for each restaurant based on the highest protein-to-fat ratio and then ranks it compared to other restaurants. This provides clear recommendations for consumers seeking maximum protein with minimal fat intake.
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(kableExtra)
+library(dplyr)
 
 #single-best
 best_pf_item <- data %>% #filter by single-best item
@@ -408,6 +433,10 @@ data %>%
 #Goal: Help consumers identify lean, efficient options at each restaurant.
 #Selection of visualization: Frequency table showing top 3 and single-best menu items per restaurant.
 #Rationale: Nutrient-dense items with low fat and high protein are often desired for health/performance, this chart filters for that.
+
+library(tidyverse)
+library(kableExtra)
+library(dplyr)
 
 data <- data %>% #Compute protein-fat ratio
   mutate(PF_Ratio = Protein / Fat)
