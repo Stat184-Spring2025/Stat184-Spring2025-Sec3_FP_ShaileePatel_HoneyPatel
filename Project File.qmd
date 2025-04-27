@@ -65,15 +65,15 @@ A box plot (Figure 1) shows the **spread, median, and outliers** of calorie coun
 #1. Calorie Distribution by Restaurant
 ggplot(data, aes(x = Restaurant, y = Calories, fill = Restaurant)) +
   geom_boxplot() +
-  coord_flip() +                        # horizontal boxes for readability
+  coord_flip() +                        #Horizontal boxes for readability
   theme_minimal() +
   theme(
-    legend.position = "none",           # drop the legend
-    axis.title.x     = element_text(), 
-    axis.title.y     = element_blank()
+    legend.position = "none",           #Drop the legend
+    axis.title.x = element_text(),      
+    axis.title.y = element_text()        
   ) +
   labs(
-    x = NULL,
+    x = "Restaurant",
     y = "Calories",
     title = "Calorie Distribution by Restaurant"
   )
@@ -107,7 +107,7 @@ ggplot(restaurant_stats, aes(
   labs(
     title = "Figure 2. Average Calories by Restaurant",
     x     = "Avg Calories",
-    y     = NULL
+    y     = "Restaurant"
   ) +
   theme_minimal()
 
@@ -120,7 +120,7 @@ ggplot(restaurant_stats, aes(
   labs(
     title = "Figure 3. Average Fat (g) by Restaurant",
     x     = "Avg Fat (g)",
-    y     = NULL
+    y     = "Restaurant"
   ) +
   theme_minimal()
 
@@ -135,7 +135,7 @@ restaurant_stats %>%
   labs(
     title = "Figure 4. Average Protein (g) by Restaurant",
     x = "Avg Protein (g)",
-    y = NULL
+    y = "Restaurant"
   ) +
   theme_minimal()
 ```
@@ -208,12 +208,14 @@ library(dplyr)
 data <- data %>% #Compute protein-fat ratio
   mutate(PF_Ratio = Protein / Fat)
 
-#top three
-top3_pf_items <- data %>% #filter and find the top 3 pf ratio items per restaurant
-  filter(Fat > 0, !is.na(Protein), !is.na(Fat)) %>%
-  group_by(Restaurant) %>%
-  slice_max(order_by = PF_Ratio, n = 3, with_ties = FALSE) %>%
-  ungroup()
+#top three filter
+invisible(
+  top3_pf_items <- data %>%
+    filter(Fat > 0, !is.na(Protein), !is.na(Fat)) %>%
+    group_by(Restaurant) %>%
+    slice_max(order_by = PF_Ratio, n = 3, with_ties = FALSE) %>%
+    ungroup()
+)
 
 top3_pf_items %>% #display the results as a table
   select(Restaurant, Product, Calories, Protein, Fat, PF_Ratio) %>%
@@ -237,12 +239,14 @@ library(tidyverse)
 library(kableExtra)
 library(dplyr)
 
-#single-best
-best_pf_item <- data %>% #filter by single-best item
-  filter(Fat > 0, !is.na(Protein), !is.na(Fat)) %>%
-  group_by(Restaurant) %>%
-  slice_max(order_by = PF_Ratio, n = 1, with_ties = FALSE) %>%
-  ungroup()
+#single-best filter
+invisible(
+  best_pf_item <- data %>%
+    filter(Fat > 0, !is.na(Protein), !is.na(Fat)) %>%
+    group_by(Restaurant) %>%
+    slice_max(order_by = PF_Ratio, n = 1, with_ties = FALSE) %>%
+    ungroup()
+)
 
 best_pf_item %>% #display the results as a table
   select(Restaurant, Product, Calories, Protein, Fat, PF_Ratio) %>%
@@ -250,7 +254,7 @@ best_pf_item %>% #display the results as a table
   kable(
     digits = 2,
     booktabs = TRUE,
-    caption = "Table 3: Best Single Menu Item per Restaurant by Protein-to-Fat Ratio Ranked"
+    caption = "Table 3: Single-Best Menu Item per Restaurant by Protein-to-Fat Ratio Ranked"
   ) %>%
   kable_styling(
     latex_options = c("striped", "hold_position"),
@@ -333,15 +337,15 @@ data <- data %>%
 
 ggplot(data, aes(x = Restaurant, y = Calories, fill = Restaurant)) +
   geom_boxplot() +
-  coord_flip() +                        # horizontal boxes for readability
+  coord_flip() +                        #Horizontal boxes for readability
   theme_minimal() +
   theme(
-    legend.position = "none",           # drop the legend
-    axis.title.x     = element_text(), 
-    axis.title.y     = element_blank()
+    legend.position = "none",           #Drop the legend
+    axis.title.x = element_text(),      
+    axis.title.y = element_text()        
   ) +
   labs(
-    x = NULL,
+    x = "Restaurant",
     y = "Calories",
     title = "Calorie Distribution by Restaurant"
   )
@@ -376,7 +380,7 @@ ggplot(restaurant_stats, aes(
   labs(
     title = "Average Calories by Restaurant",
     x     = "Avg Calories",
-    y     = NULL
+    y     = "Restaurant"
   ) +
   theme_minimal()
 
@@ -389,7 +393,7 @@ ggplot(restaurant_stats, aes(
   labs(
     title = "Average Fat (g) by Restaurant",
     x     = "Avg Fat (g)",
-    y     = NULL
+    y     = "Restaurant"
   ) +
   theme_minimal()
 
@@ -404,7 +408,7 @@ restaurant_stats %>%
   labs(
     title = "Average Protein (g) by Restaurant",
     x = "Avg Protein (g)",
-    y = NULL
+    y = "Restaurant"
   ) +
   theme_minimal()
 
@@ -442,11 +446,13 @@ data <- data %>% #Compute protein-fat ratio
   mutate(PF_Ratio = Protein / Fat)
 
 #top three
-top3_pf_items <- data %>% #filter and find the top 3 pf ratio items per restaurant
-  filter(Fat > 0, !is.na(Protein), !is.na(Fat)) %>%
-  group_by(Restaurant) %>%
-  slice_max(order_by = PF_Ratio, n = 3, with_ties = FALSE) %>%
-  ungroup()
+invisible(
+  top3_pf_items <- data %>%
+    filter(Fat > 0, !is.na(Protein), !is.na(Fat)) %>%
+    group_by(Restaurant) %>%
+    slice_max(order_by = PF_Ratio, n = 3, with_ties = FALSE) %>%
+    ungroup()
+)
 
 top3_pf_items %>% #display the results as a table
   select(Restaurant, Product, Calories, Protein, Fat, PF_Ratio) %>%
@@ -462,12 +468,14 @@ top3_pf_items %>% #display the results as a table
     position = "center"
   )
 
-#single-best
-best_pf_item <- data %>% #filter by single-best item
-  filter(Fat > 0, !is.na(Protein), !is.na(Fat)) %>%
-  group_by(Restaurant) %>%
-  slice_max(order_by = PF_Ratio, n = 1, with_ties = FALSE) %>%
-  ungroup()
+#single-best filter
+invisible(
+  best_pf_item <- data %>%
+    filter(Fat > 0, !is.na(Protein), !is.na(Fat)) %>%
+    group_by(Restaurant) %>%
+    slice_max(order_by = PF_Ratio, n = 1, with_ties = FALSE) %>%
+    ungroup()
+)
 
 best_pf_item %>% #display the results as a table
   select(Restaurant, Product, Calories, Protein, Fat, PF_Ratio) %>%
