@@ -1,20 +1,17 @@
 ---
 title: "Fueling Your Workout: Fast-Food Chain Menu Analysis for Fitness Enthusiasts"
-subtitle: Final Project for Stat 184
-author: Honey Patel, Shailee Patel
+subtitle: "Final Project for Stat 184"
+author: "Honey Patel, Shailee Patel"
 format:
   pdf:
-    include-in-header: preamble.tex
     toc: false
     fig-align: center
     cap-location: top
-    geometry:
-      - top=1in
-      - left=1in
-      - right=1in
-      - bottom=1in
+    geometry: top=1in, left=1in, right=1in, bottom=1in
     code-overflow: wrap
     code-block-font-size: 90%
+    pdf-engine: xelatex
+    documentclass: scrartcl
 ---
 
 # Introduction
@@ -57,11 +54,21 @@ These attributes allow us to assess the nutritional quality of menu items and ma
 
 # Analysis and Findings
 
+```{r setup, include=FALSE}
+library(tidyverse)
+library(kableExtra)
+
+#reload data to prevent errors
+data <- read_csv("https://raw.githubusercontent.com/Stat184-Spring2025/Stat184-Spring2025-Sec3_FP_ShaileePatel_HoneyPatel/refs/heads/dev/combined_nutrition_data.csv")
+```
+
 ## 1. Calorie Distribution by Restaurant
 
 A box plot (Figure 1) shows the **spread, median, and outliers** of calorie counts across each chain. This highlights variation—for example, KFC has wider calorie ranges due to high-calorie menu items.
 
 ```{r,echo=FALSE,warning= FALSE,message=FALSE}
+library(tidyverse)
+
 #1. Calorie Distribution by Restaurant
 ggplot(data, aes(x = Restaurant, y = Calories, fill = Restaurant)) +
   geom_boxplot() +
@@ -90,6 +97,8 @@ Table 1 summarizes **per-chain averages**. Bar charts (Figures 2–4) compare e
 Fitness-focused readers can see that Chick Fil-A and KFC rank high in average protein, while Starbucks and Domino's offer lower calorie and fat options.
 
 ```{r,echo=FALSE,warning= FALSE,message=FALSE}
+library(tidyverse)
+
 #2. Bar chart: Average Calories
 restaurant_stats <- data %>%
   group_by(Restaurant) %>%
@@ -178,16 +187,18 @@ restaurant_stats %>%
 A bar chart (Figure 5) displays the **average protein content** per menu item at each restaurant. This helps fitness-focused consumers identify chains that consistently offer more protein-rich choices. For example, restaurants like KFC and Chick-fil-A rank among the highest for average protein per item, while Starbucks and Dunkin' offer significantly lower averages.
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(tidyverse)
+
 #3.Average Protein per Menu Item by Restaurant
-data %>%
-  group_by(Restaurant) %>% 
+protein_stats <- data %>%
+  group_by(Restaurant) %>%
   summarize(Avg_Protein = mean(Protein, na.rm = TRUE)) %>% #group by restaurant and calulate average without missing values
-  mutate(Avg_Protein = ifelse(is.na(Avg_Protein), 0, Avg_Protein)) %>% #replace missing values with 0
-  ggplot(aes(x = reorder(Restaurant, Avg_Protein), y = Avg_Protein)) + #create bar graph
+  mutate(Avg_Protein = ifelse(is.na(Avg_Protein), 0, Avg_Protein)) #replace missing values with 0
+ggplot(protein_stats, aes(x = reorder(Restaurant, Avg_Protein), y = Avg_Protein)) +
   geom_col(fill = "#4682B4") +
   coord_flip() +
   labs(
-    title = "Average Protein per Menu Item by Restaurant",
+    title = "Figure 5. Average Protein per Menu Item by Restaurant",
     x = "Restaurant",
     y = "Avg Protein (g)"
   ) +
@@ -238,6 +249,9 @@ Table 3 then highlights the **single best** menu item for each restaurant based 
 library(tidyverse)
 library(kableExtra)
 library(dplyr)
+
+data <- data %>%
+  mutate(PF_Ratio = Protein / Fat)
 
 #single-best filter
 invisible(
