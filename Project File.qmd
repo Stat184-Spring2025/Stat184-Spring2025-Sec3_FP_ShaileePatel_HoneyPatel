@@ -295,21 +295,28 @@ library(dplyr)
 data <- data %>%
   mutate(PF_Ratio = Protein / Fat)
 
-#single-best filter
-invisible(
-  best_pf_item <- data %>%
-    filter(Fat > 0, !is.na(Protein), !is.na(Fat)) %>%
-    group_by(Restaurant) %>%
-    slice_max(order_by = PF_Ratio, n = 1, with_ties = FALSE) %>%
-    ungroup()
-)
+#Single-best item per restaurant based on PF ratio
+best_pf_item <- data %>%
+  filter(Fat > 0, !is.na(Protein), !is.na(Fat)) %>%
+  group_by(Restaurant) %>%
+  slice_max(order_by = PF_Ratio, n = 1, with_ties = FALSE) %>%
+  ungroup()
 
-best_pf_item %>% #display the results as a table
+#Display the results
+best_pf_item %>%
   select(Restaurant, Product, Calories, Protein, Fat, PF_Ratio) %>%
   arrange(desc(PF_Ratio)) %>%
   kable(
     digits = 2,
     booktabs = TRUE,
+    col.names = c(
+      "Restaurant",
+      "Menu Item",
+      "Calories",
+      "Protein (g)",
+      "Fat (g)",
+      "Protein-to-Fat Ratio (P/F)"
+    ),
     caption = "Single-Best Menu Item per Restaurant by Protein-to-Fat Ratio Ranked"
   ) %>%
   kable_styling(
@@ -532,6 +539,7 @@ library(tidyverse)
 library(kableExtra)
 library(dplyr)
 
+#4. Ranking Protein-Fat Ratios Per Restaurants
 #Find the protein-to-fat (PF) ratio
 data <- data %>%
   mutate(PF_Ratio = Protein / Fat)
@@ -566,22 +574,32 @@ top3_pf_items %>%
     position = "center"
   )
 
-#single-best filter
-invisible(
-  best_pf_item <- data %>%
-    filter(Fat > 0, !is.na(Protein), !is.na(Fat)) %>%
-    group_by(Restaurant) %>%
-    slice_max(order_by = PF_Ratio, n = 1, with_ties = FALSE) %>%
-    ungroup()
-)
+data <- data %>%
+  mutate(PF_Ratio = Protein / Fat)
 
-best_pf_item %>% #display the results as a table
+#Single-best item per restaurant based on PF ratio
+best_pf_item <- data %>%
+  filter(Fat > 0, !is.na(Protein), !is.na(Fat)) %>%
+  group_by(Restaurant) %>%
+  slice_max(order_by = PF_Ratio, n = 1, with_ties = FALSE) %>%
+  ungroup()
+
+#Display the results
+best_pf_item %>%
   select(Restaurant, Product, Calories, Protein, Fat, PF_Ratio) %>%
   arrange(desc(PF_Ratio)) %>%
   kable(
     digits = 2,
     booktabs = TRUE,
-    caption = "Table 3: Best Single Menu Item per Restaurant by Protein-to-Fat Ratio Ranked"
+    col.names = c(
+      "Restaurant",
+      "Menu Item",
+      "Calories",
+      "Protein (g)",
+      "Fat (g)",
+      "Protein-to-Fat Ratio (P/F)"
+    ),
+    caption = "Single-Best Menu Item per Restaurant by Protein-to-Fat Ratio Ranked"
   ) %>%
   kable_styling(
     latex_options = c("striped", "hold_position"),
