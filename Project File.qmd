@@ -16,7 +16,7 @@ format:
 
 # Introduction
 
-Maintaining adequate protein intake is critical for fitness goals, including muscle repair and growth. However, when pressed for time, many turn to fast-food options, which vary widely in protein content. This report explores how popular fast-food chains compare in terms of protein, fat, and calories—guiding fitness-minded consumers toward better choices.
+Maintaining adequate protein intake is critical for fitness goals, including muscle repair and growth. However, when pressed for time, many turn to fast-food options, which vary widely in protein content. This report explores how popular fast-food chains compare in terms of protein, fat, and calories in order to help guide fitness-minded consumers toward better choices.
 
 # Data Provenance
 
@@ -250,18 +250,18 @@ library(kableExtra)
 library(dplyr)
 
 #4. Ranking Protein-Fat Ratios Per Restaurants
-#Find the protein-to-fat (PF) ratio
+#Add PF ration calculation
 data <- data %>%
   mutate(PF_Ratio = Protein / Fat)
 
-#Get top 3 items per restaurant based on PF ratio
+#Get top 3 items per restaurant by PF ratio
 top3_pf_items <- data %>%
   filter(Fat > 0, !is.na(Protein), !is.na(Fat)) %>%
   group_by(Restaurant) %>%
   slice_max(order_by = PF_Ratio, n = 3, with_ties = FALSE) %>%
   ungroup()
 
-#Display results with labelled columns
+#Create visualization filtered by top 3 items per restaurant based on PF ratio
 top3_pf_items %>%
   select(Restaurant, Product, Calories, Protein, Fat, PF_Ratio) %>%
   arrange(Restaurant, desc(PF_Ratio)) %>%
@@ -281,8 +281,10 @@ top3_pf_items %>%
   kable_styling(
     latex_options = c("striped", "hold_position"),
     full_width = FALSE,
-    position = "center"
-  )
+    position = "center",
+    font_size = 9
+  ) %>%
+  column_spec(6, width = "5em")
 ```
 
 **Table 3** presents the highest-ranking individual menu item from each restaurant based on protein-to-fat (PF) ratio, ordered from highest to lowest across all chains. The Dietary Guidelines for Americans recommend limiting saturated fat to less than 10% of daily caloric intake while prioritizing nutrient-dense protein sources which makes the PF ratio an efficient way to screen for healthier fast-food options (*Dietary Guidelines for Americans, 2020–2025*). This table gives a focused view of the single best nutritional option per brand which is particularly ideal for people who want a quick, optimized recommendation without having to compare multiple items.
@@ -292,17 +294,18 @@ library(tidyverse)
 library(kableExtra)
 library(dplyr)
 
+#Add PF ratio calculation
 data <- data %>%
   mutate(PF_Ratio = Protein / Fat)
 
-#Single-best item per restaurant based on PF ratio
+#Select the top item per restaurant by PF ratio
 best_pf_item <- data %>%
   filter(Fat > 0, !is.na(Protein), !is.na(Fat)) %>%
   group_by(Restaurant) %>%
   slice_max(order_by = PF_Ratio, n = 1, with_ties = FALSE) %>%
   ungroup()
 
-#Display the results
+#Create visualization filtered by single-best item
 best_pf_item %>%
   select(Restaurant, Product, Calories, Protein, Fat, PF_Ratio) %>%
   arrange(desc(PF_Ratio)) %>%
@@ -322,8 +325,10 @@ best_pf_item %>%
   kable_styling(
     latex_options = c("striped", "hold_position"),
     full_width = FALSE,
-    position = "center"
-  )
+    position = "center",
+    font_size = 9               
+  ) %>%
+  column_spec(6, width = "5em")  
 ```
 
 Together, Tables 2 and 3 transform general nutritional trends into concrete meal suggestions. Table 2 highlights multiple high-performing options per restaurant, giving variety to people who dine frequently at the same chain. Table 3 then filters that information even further by identifying the single best item at each restaurant based on its protein-to-fat ratio. Whether a consumer is seeking flexibility or a quick choice, these tables provide accessible support for making healthier fast-food decisions without having to sacrifice convenience/taste.
@@ -540,18 +545,18 @@ library(kableExtra)
 library(dplyr)
 
 #4. Ranking Protein-Fat Ratios Per Restaurants
-#Find the protein-to-fat (PF) ratio
+#Add PF ration calculation
 data <- data %>%
   mutate(PF_Ratio = Protein / Fat)
 
-#Get top 3 items per restaurant based on PF ratio
+#Get top 3 items per restaurant by PF ratio
 top3_pf_items <- data %>%
   filter(Fat > 0, !is.na(Protein), !is.na(Fat)) %>%
   group_by(Restaurant) %>%
   slice_max(order_by = PF_Ratio, n = 3, with_ties = FALSE) %>%
   ungroup()
 
-#Display results with labelled columns
+#Create visualization filtered by top 3 items per restaurant based on PF ratio
 top3_pf_items %>%
   select(Restaurant, Product, Calories, Protein, Fat, PF_Ratio) %>%
   arrange(Restaurant, desc(PF_Ratio)) %>%
@@ -571,20 +576,24 @@ top3_pf_items %>%
   kable_styling(
     latex_options = c("striped", "hold_position"),
     full_width = FALSE,
-    position = "center"
-  )
+    position = "center",
+    font_size = 9
+  ) %>%
+  column_spec(6, width = "5em")
 
+#Single-best item per restaurant based on PF ratio
+#Add PF ratio calculation
 data <- data %>%
   mutate(PF_Ratio = Protein / Fat)
 
-#Single-best item per restaurant based on PF ratio
+#Select the top item per restaurant by PF ratio
 best_pf_item <- data %>%
   filter(Fat > 0, !is.na(Protein), !is.na(Fat)) %>%
   group_by(Restaurant) %>%
   slice_max(order_by = PF_Ratio, n = 1, with_ties = FALSE) %>%
   ungroup()
 
-#Display the results
+#Create visualization filtered by single-best item
 best_pf_item %>%
   select(Restaurant, Product, Calories, Protein, Fat, PF_Ratio) %>%
   arrange(desc(PF_Ratio)) %>%
@@ -604,6 +613,8 @@ best_pf_item %>%
   kable_styling(
     latex_options = c("striped", "hold_position"),
     full_width = FALSE,
-    position = "center"
-  )
+    position = "center",
+    font_size = 9               
+  ) %>%
+  column_spec(6, width = "5em")  
 ```
