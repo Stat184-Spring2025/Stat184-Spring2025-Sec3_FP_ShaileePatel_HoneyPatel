@@ -20,7 +20,7 @@ Maintaining adequate protein intake is critical for fitness goals, including mus
 
 # Data Provenance
 
-Our analysis draws on two publicly available datasets:
+Our analysis draws on data from two publicly available datasets:
 
 1.  **fastfood.csv**: Nutritional data (calories, carbohydrates, fats, protein) for menu items from major U.S. fast-food chains, sourced from [Fast Food Nutrition Dataset](https://www.kaggle.com/datasets/ulrikthygepedersen/fastfood-nutrition/data).
 2.  **Nutrition_Value_Dataset.csv**: Additional fast-food menu data, including newer items and broader restaurant coverage, sourced from [Fast Food Joint Nutrition Values Dataset](https://www.kaggle.com/datasets/rakkesharv/fast-food-joint-nutrition-values-dataset).
