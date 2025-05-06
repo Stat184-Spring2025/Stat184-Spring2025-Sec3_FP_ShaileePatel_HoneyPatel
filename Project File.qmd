@@ -22,7 +22,7 @@ Maintaining adequate protein intake is critical for fitness goals, including mus
 
 Our analysis draws on two publicly available datasets:
 
-1.  **fastfood.csv**:Nutritional data (calories, carbohydrates, fats, protein) for menu items from major U.S. fast-food chains, sourced from [Fast Food Nutrition Dataset](https://www.kaggle.com/datasets/ulrikthygepedersen/fastfood-nutrition/data).
+1.  **fastfood.csv**: Nutritional data (calories, carbohydrates, fats, protein) for menu items from major U.S. fast-food chains, sourced from [Fast Food Nutrition Dataset](https://www.kaggle.com/datasets/ulrikthygepedersen/fastfood-nutrition/data).
 2.  **Nutrition_Value_Dataset.csv**: Additional fast-food menu data, including newer items and broader restaurant coverage, sourced from [Fast Food Joint Nutrition Values Dataset](https://www.kaggle.com/datasets/rakkesharv/fast-food-joint-nutrition-values-dataset).
 
 These datasets were merged after cleaning to create a comprehensive database for analysis. The cases in our data represent individual menu items across various restaurant chains.
@@ -64,7 +64,11 @@ data <- read_csv("https://raw.githubusercontent.com/Stat184-Spring2025/Stat184-S
 
 ## 1. Calorie Distribution by Restaurant
 
-A box plot (Figure 1) shows the **spread, median, and outliers** of calorie counts across each chain. This highlights variation—for example, KFC has wider calorie ranges due to high-calorie menu items.
+**Figure 1** displays the average protein content of menu items at each major fast-food chain in the dataset. By comparing these averages, we can begin to identify which restaurants may be better suited for individuals aiming to maintain or build muscle through higher protein intake.
+
+Interestingly, some chains consistently offer protein-rich items, likely due to customizable or health-focused menu options, like items found at Chipotle or Subway. Others restaurants, like traditional burger or dessert-focused chains, tend to have lower average protein content, while reflects a menu composition centered more on indulgence than nutrition.
+
+This comparison provides a foundational view of typical fast-food options and introduces key nutritional patterns explored throughout this report.
 
 ```{r,echo=FALSE,warning= FALSE,message=FALSE}
 library(tidyverse)
@@ -86,15 +90,17 @@ ggplot(data, aes(x = Restaurant, y = Calories, fill = Restaurant)) +
   )
 ```
 
+In summary, Figure 1 highlights meaningful differences in the nutritional focus of each chain. For individuals with fitness goals, restaurants offering higher average protein values may be more compatible with muscle-building diets. This insight encourages consumers to look beyond brand names and instead use nutritional metrics, like average protein content, to help guide their choices more strategically.
+
 ## 2. Average Calories, Fat, and Protein
 
-Table 1 summarizes **per-chain averages**. Bar charts (Figures 2–4) compare each metric:
+The following figures provide a side-by-side look at how average calories, fat, and protein levels differ across major fast-food chains. By comparing these three metrics, we can better understand the nutritional “profiles” of each restaurant by highlighting ones that may be better suited for energy-dense meals, lean eating, or balanced options. Bar charts (Figures 2–4) compare each metric:
 
 -   Figure 2: Avg Calories
 -   Figure 3: Avg Fat (g)
 -   Figure 4: Avg Protein (g)
 
-Fitness-focused readers can see that Chick Fil-A and KFC rank high in average protein, while Starbucks and Domino's offer lower calorie and fat options.
+**Figure 2** displays the average calorie content of menu items by restaurant. This metric gives a general sense of how energy-dense the offerings are at each chain. Restaurants with higher average calories often serve larger portions or more indulgent items, such as burgers, fried foods, or combo meals. For fitness-focused individuals watching their caloric intake, this figure provides a helpful baseline for identifying chains where portion control or selective ordering may be especially important.
 
 ```{r,echo=FALSE,warning= FALSE,message=FALSE}
 library(tidyverse)
@@ -119,6 +125,14 @@ ggplot(restaurant_stats, aes(
     y     = "Restaurant"
   ) +
   theme_minimal()
+```
+
+Calorie content alone doesn’t tell the whole story, but it establishes a key constraint, especially for people that are managing their weight or following specific intake goals. Later figures help put this calorie context into perspective by comparing it with fat and protein levels.
+
+**Figure 3** illustrates the average fat content per menu item by restaurant. While fat is a necessary nutrient, excessive intake, like from saturated/trans fats, has been associated with increased health risks such as cardiovascular disease. According to the Harvard T.H. Chan School of Public Health, not all fats are created equal; distinguishing between healthy unsaturated fats and harmful trans fats is critical to informed dietary choices. Fast-food chains that rely heavily on frying, cheese, or processed meats tend to rank higher in fat content. Understanding these differences can help consumers better regulate their fat intake while still enjoying convenient meals.
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(tidyverse)
 
 #3. Bar chart: Average Fat
 ggplot(restaurant_stats, aes(
@@ -132,7 +146,13 @@ ggplot(restaurant_stats, aes(
     y     = "Restaurant"
   ) +
   theme_minimal()
+```
 
+When viewed alongside calories and protein, fat content provides an important middle layer. Some high-calorie items may be energy-dense due to fat, while others may balance it out with higher protein, which emphasizes the need to look at nutrients together rather than separately.
+
+**Figure 4** revisits protein content, this time as a standalone measure rather than in comparison to fat or calories. A high-protein diet plays a vital role in muscle synthesis, post-exercise recovery, and maintaining lean body mass. As Phillips and van Loon explain, dietary protein supports optimal adaptations to strength training and contributes to satiety, making it a critical macronutrient for active individuals (*Journal of Sports Sciences*). This figure helps readers identify restaurants that offer consistently higher protein content, which aligns with recommendations for physically active populations. For instance, restaurants like Chipotle and Subway stand out, offering options that may better meet these kinds of nutritional demands.
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
 #4. Bar chart: Average Protein
 restaurant_stats %>%
   filter(!is.na(avg_protein)) %>%
@@ -149,7 +169,9 @@ restaurant_stats %>%
   theme_minimal()
 ```
 
-Table 1 shows each bars' **exact** values:
+Comparing Figure 4 with the previous plots reinforces the idea that not all high-calorie or high-fat meals are bad if they also deliver strong protein benefits. This sets the stage for analyzing combined metrics, like the protein-to-fat ratio, in later sections.
+
+**Table 1** provides the average calorie, fat, and protein content of menu items for each restaurant in the dataset. Unlike bar charts, which are better for visual trend-spotting, this summary table offers precise values that allow for closer comparison between chains.
 
 ```{r,echo=FALSE,warning= FALSE,message=FALSE}
 #Question 2 -----------------------------------------------------------
@@ -173,7 +195,7 @@ restaurant_stats %>%
     digits    = 1,
     booktabs  = TRUE,
     col.names = c("Restaurant", "Avg Calories", "Avg Fat (g)", "Avg Protein (g)"),
-    caption   = "Table 1: Average Calories, Fat, and Protein by Restaurant"
+    caption   = "Average Calories, Fat, and Protein by Restaurant"
   ) %>%
   kable_styling(
     latex_options = c("striped", "hold_position"),  # adds zebra stripes & fixes float
@@ -184,18 +206,27 @@ restaurant_stats %>%
 
 ## 3. Average Protein per Menu Item by Restaurant
 
-A bar chart (Figure 5) displays the **average protein content** per menu item at each restaurant. This helps fitness-focused consumers identify chains that consistently offer more protein-rich choices. For example, restaurants like KFC and Chick-fil-A rank among the highest for average protein per item, while Starbucks and Dunkin' offer significantly lower averages.
+**Figure 5** revisits average protein content per restaurant, now with item counts to show how many menu items were analyzed per chain. This added detail is important as averages based on very few items (like a single high-protein bowl) may be less representative than ones from chains with larger, more diverse menus.
+
+The chart also helps identify not only which restaurants offer higher-protein meals on average, but also whether those averages are backed by a wider variety of choices. For instance, a chain with both a higher average and a larger number of items (n) may be more reliably protein-focused overall. In contrast, a restaurant with a high average but low item count may only offer a few protein-heavy options which can be potentially limiting for consumers trying to make consistent nutritional choices.
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 library(tidyverse)
 
 #3.Average Protein per Menu Item by Restaurant
+# Calculate average protein and item count per restaurant
 protein_stats <- data %>%
   group_by(Restaurant) %>%
-  summarize(Avg_Protein = mean(Protein, na.rm = TRUE)) %>% #group by restaurant and calulate average without missing values
-  mutate(Avg_Protein = ifelse(is.na(Avg_Protein), 0, Avg_Protein)) #replace missing values with 0
+  summarize(
+    Avg_Protein = mean(Protein, na.rm = TRUE),
+    Item_Count = n()
+  ) %>%
+  mutate(Avg_Protein = ifelse(is.na(Avg_Protein), 0, Avg_Protein)) #Replace null values with 0
+
+#Bar graph with count labels (include how many items per restaurant)
 ggplot(protein_stats, aes(x = reorder(Restaurant, Avg_Protein), y = Avg_Protein)) +
   geom_col(fill = "#4682B4") +
+  geom_text(aes(label = paste0("n=", Item_Count)), hjust = 1.1, color = "white", size = 4) +
   coord_flip() +
   labs(
     title = "Figure 5. Average Protein per Menu Item by Restaurant",
@@ -205,10 +236,13 @@ ggplot(protein_stats, aes(x = reorder(Restaurant, Avg_Protein), y = Avg_Protein)
   theme_minimal()
 ```
 
+In summary, Figure 5 reinforces the importance of not just looking at average protein levels, but also considering how many options a restaurant offers to support consistent dietary habits. Chains with both high protein averages and a large number of items, like Chipotle, may offer more flexibility for fitness-focused consumers. This layered view lays the groundwork for deeper comparisons, such as evaluating how efficiently each restaurant delivers protein relative to fat and calories.
+
 ## 4. Ranking Protein-Fat Ratios Per Restaurants
 
-Table 2 summarizes the **top three** menu items from each restaurant based on their protein-to-fat ratio.\
-This helps fitness-focused consumers quickly identify lean menu choices that offer the most protein with the least fat.
+**Table 2** showcases the top three menu items at each restaurant based on the protein-to-fat (PF) ratio, a derived metric used to highlight lean menu options. As shown in Schoenfeld and Aragon’s research, consuming protein-dense meals evenly throughout the day enhances muscle protein synthesis and supports strength-building (*Journal of the International Society of Sports Nutrition*).
+
+This table moves the report from general trends into specific, actionable recommendations. For example, a grilled chicken bowl with a PF ratio above 5 is likely a much leaner and more fitness-friendly choice than a sandwich with the same calories but a PF ratio below 1. By filtering out items with zero fat and focusing on realistic choices with both protein and fat values, this ranking provides practical guidance for optimizing fast food decisions without needing to scrutinize every nutrition label.
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 library(tidyverse)
@@ -216,25 +250,33 @@ library(kableExtra)
 library(dplyr)
 
 #4. Ranking Protein-Fat Ratios Per Restaurants
-data <- data %>% #Compute protein-fat ratio
+#Find the protein-to-fat (PF) ratio
+data <- data %>%
   mutate(PF_Ratio = Protein / Fat)
 
-#top three filter
-invisible(
-  top3_pf_items <- data %>%
-    filter(Fat > 0, !is.na(Protein), !is.na(Fat)) %>%
-    group_by(Restaurant) %>%
-    slice_max(order_by = PF_Ratio, n = 3, with_ties = FALSE) %>%
-    ungroup()
-)
+#Get top 3 items per restaurant based on PF ratio
+top3_pf_items <- data %>%
+  filter(Fat > 0, !is.na(Protein), !is.na(Fat)) %>%
+  group_by(Restaurant) %>%
+  slice_max(order_by = PF_Ratio, n = 3, with_ties = FALSE) %>%
+  ungroup()
 
-top3_pf_items %>% #display the results as a table
+#Display results with labelled columns
+top3_pf_items %>%
   select(Restaurant, Product, Calories, Protein, Fat, PF_Ratio) %>%
   arrange(Restaurant, desc(PF_Ratio)) %>%
   kable(
     digits = 2,
     booktabs = TRUE,
-    caption = "Table 2: Top 3 Menu Items per Restaurant by Protein-to-Fat Ratio"
+    col.names = c(
+      "Restaurant",
+      "Menu Item",
+      "Calories",
+      "Protein (g)",
+      "Fat (g)",
+      "Protein-to-Fat Ratio (P/F)"
+    ),
+    caption = "Top 3 Menu Items per Restaurant by Protein-to-Fat Ratio"
   ) %>%
   kable_styling(
     latex_options = c("striped", "hold_position"),
@@ -243,7 +285,7 @@ top3_pf_items %>% #display the results as a table
   )
 ```
 
-Table 3 then highlights the **single best** menu item for each restaurant based on the highest protein-to-fat ratio and then ranks it compared to other restaurants. This provides clear recommendations for consumers seeking maximum protein with minimal fat intake.
+**Table 3** presents the highest-ranking individual menu item from each restaurant based on protein-to-fat (PF) ratio, ordered from highest to lowest across all chains. The Dietary Guidelines for Americans recommend limiting saturated fat to less than 10% of daily caloric intake while prioritizing nutrient-dense protein sources which makes the PF ratio an efficient way to screen for healthier fast-food options (*Dietary Guidelines for Americans, 2020–2025*). This table gives a focused view of the single best nutritional option per brand which is particularly ideal for people who want a quick, optimized recommendation without having to compare multiple items.
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 library(tidyverse)
@@ -268,7 +310,7 @@ best_pf_item %>% #display the results as a table
   kable(
     digits = 2,
     booktabs = TRUE,
-    caption = "Table 3: Single-Best Menu Item per Restaurant by Protein-to-Fat Ratio Ranked"
+    caption = "Single-Best Menu Item per Restaurant by Protein-to-Fat Ratio Ranked"
   ) %>%
   kable_styling(
     latex_options = c("striped", "hold_position"),
@@ -276,6 +318,33 @@ best_pf_item %>% #display the results as a table
     position = "center"
   )
 ```
+
+Together, Tables 2 and 3 transform general nutritional trends into concrete meal suggestions. Table 2 highlights multiple high-performing options per restaurant, giving variety to people who dine frequently at the same chain. Table 3 then filters that information even further by identifying the single best item at each restaurant based on its protein-to-fat ratio. Whether a consumer is seeking flexibility or a quick choice, these tables provide accessible support for making healthier fast-food decisions without having to sacrifice convenience/taste.
+
+# Conclusion
+
+This analysis set out to answer a common but complex question: how can people with specific fitness goals make informed choices when eating at fast-food restaurants? By examining calories, fat, and protein content, alongside the derived protein-to-fat ratio attribute, we were able to uncover meaningful differences in the nutritional profiles of major chains and their individual menu items.
+
+Visualizations helped with provided a high-level overview of where protein-rich, fitness-friendly meals are most likely to be found, while tables narrowed the focus to specific recommendations. Chains like Chipotle and Subway consistently stood out for offering more high-protein options, while other restaurants had fewer lean items hidden among heavier choices.
+
+Ultimately, this report shows that nutritional awareness doesn’t have to disappear when dining out. With the right data, people can navigate fast food more strategically by selecting meals that support strength, performance, and overall health without requiring thorough meal planning.
+
+# References
+
+1.  Phillips, S. M., & Van Loon, L. J. C. (2011). *Dietary protein for athletes: From requirements to optimum adaptation*. Journal of Sports Sciences, 29(sup1), S29–S38. <https://doi.org/10.1080/02640414.2011.619204>\
+    \> (Use this to support claims about protein for muscle repair, growth, and satiety.)
+
+2.  Pasiakos, S. M., Lieberman, H. R., & McLellan, T. M. (2014). *Effects of protein supplements on muscle damage, soreness and recovery of muscle function and physical performance: A systematic review*. Sports Medicine, 44(5), 655–670. <https://doi.org/10.1007/s40279-013-0137-7>\
+    \> (Supports use of high-protein diets in active populations.)
+
+3.  Harvard T.H. Chan School of Public Health. *The Nutrition Source – Fats and Cholesterol*. <https://www.hsph.harvard.edu/nutritionsource/what-should-you-eat/fats-and-cholesterol/>\
+    \> (Use to support the risks of excess dietary fat and the importance of fat quality.)
+
+4.  U.S. Department of Health and Human Services and U.S. Department of Agriculture. (2020). *Dietary Guidelines for Americans, 2020–2025*. 9th Edition. <https://www.dietaryguidelines.gov/>\
+    \> (General guidance for balanced nutrient intake and fast food moderation.)
+
+5.  Schoenfeld, B. J., & Aragon, A. A. (2018). *How much protein can the body use in a single meal for muscle-building? Implications for daily protein distribution.* Journal of the International Society of Sports Nutrition, 15(1), 10. <https://doi.org/10.1186/s12970-018-0215-1>\
+    \> (Helps justify looking at protein distribution per meal or item.)
 
 # Code Appendix
 
@@ -432,15 +501,22 @@ restaurant_stats %>%
 #Selection of visualization: Horizontal bar chart
 #Rationale: Shows how different restaurants stack up in terms of lean/high-protein offerings.
 
-data %>%
-  group_by(Restaurant) %>% 
-  summarize(Avg_Protein = mean(Protein, na.rm = TRUE)) %>% #group by restaurant and calulate average without missing values
-  mutate(Avg_Protein = ifelse(is.na(Avg_Protein), 0, Avg_Protein)) %>% #replace missing values with 0
-  ggplot(aes(x = reorder(Restaurant, Avg_Protein), y = Avg_Protein)) + #create bar graph
+# Calculate average protein and item count per restaurant
+protein_stats <- data %>%
+  group_by(Restaurant) %>%
+  summarize(
+    Avg_Protein = mean(Protein, na.rm = TRUE),
+    Item_Count = n()
+  ) %>%
+  mutate(Avg_Protein = ifelse(is.na(Avg_Protein), 0, Avg_Protein)) #Replace null values with 0
+
+#Bar graph with count labels (include how many items per restaurant)
+ggplot(protein_stats, aes(x = reorder(Restaurant, Avg_Protein), y = Avg_Protein)) +
   geom_col(fill = "#4682B4") +
+  geom_text(aes(label = paste0("n=", Item_Count)), hjust = 1.1, color = "white", size = 4) +
   coord_flip() +
   labs(
-    title = "Average Protein per Menu Item by Restaurant",
+    title = "Figure 5. Average Protein per Menu Item by Restaurant",
     x = "Restaurant",
     y = "Avg Protein (g)"
   ) +
@@ -456,25 +532,33 @@ library(tidyverse)
 library(kableExtra)
 library(dplyr)
 
-data <- data %>% #Compute protein-fat ratio
+#Find the protein-to-fat (PF) ratio
+data <- data %>%
   mutate(PF_Ratio = Protein / Fat)
 
-#top three
-invisible(
-  top3_pf_items <- data %>%
-    filter(Fat > 0, !is.na(Protein), !is.na(Fat)) %>%
-    group_by(Restaurant) %>%
-    slice_max(order_by = PF_Ratio, n = 3, with_ties = FALSE) %>%
-    ungroup()
-)
+#Get top 3 items per restaurant based on PF ratio
+top3_pf_items <- data %>%
+  filter(Fat > 0, !is.na(Protein), !is.na(Fat)) %>%
+  group_by(Restaurant) %>%
+  slice_max(order_by = PF_Ratio, n = 3, with_ties = FALSE) %>%
+  ungroup()
 
-top3_pf_items %>% #display the results as a table
+#Display results with labelled columns
+top3_pf_items %>%
   select(Restaurant, Product, Calories, Protein, Fat, PF_Ratio) %>%
   arrange(Restaurant, desc(PF_Ratio)) %>%
   kable(
     digits = 2,
     booktabs = TRUE,
-    caption = "Table 2: Top 3 Menu Items per Restaurant by Protein-to-Fat Ratio"
+    col.names = c(
+      "Restaurant",
+      "Menu Item",
+      "Calories",
+      "Protein (g)",
+      "Fat (g)",
+      "Protein-to-Fat Ratio (P/F)"
+    ),
+    caption = "Top 3 Menu Items per Restaurant by Protein-to-Fat Ratio"
   ) %>%
   kable_styling(
     latex_options = c("striped", "hold_position"),
