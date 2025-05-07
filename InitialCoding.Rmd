@@ -79,20 +79,28 @@ data <- data %>%
 #Selection of visualization: Box Plot
 #Rationale: Shows median, IQR, and outliers at once. We care about variation in data, e.g., whether Restaurant A has a few extremely high-calorie outliers vs. Restaurant B’s consistently mid-range menu—a box plot (or violin plot) is by far the more informative choice.
 
-ggplot(data, aes(x = Restaurant, y = Calories, fill = Restaurant)) +
+library(ggplot2)
+library(dplyr)
+
+# Ensure restaurants are ordered alphabetically for better readability
+data <- data %>%
+  mutate(Restaurant = factor(Restaurant, levels = sort(unique(Restaurant))))
+
+# Boxplot with improvements
+ggplot(data, aes(x = Restaurant, y = Calories)) +
   geom_boxplot() +
-  coord_flip() +                        # horizontal boxes for readability
+  coord_flip() +  # Horizontal layout for better label readability
   theme_minimal() +
   theme(
-    legend.position = "none",           # drop the legend
-    axis.title.x     = element_text(), 
-    axis.title.y     = element_blank()
+    axis.title.x = element_text(),
+    axis.title.y = element_text()
   ) +
   labs(
-    x = NULL,
+    x = "Restaurant",
     y = "Calories",
-    title = "Calorie Distribution by Restaurant"
+    title = "Boxplot of Calories by Restaurant"
   )
+
 
 #Question 2 -----------------------------------------------------------
 #Do different restaurants differ in how healthy their items are (based on calories, fat, and protein)?
@@ -110,11 +118,18 @@ restaurant_stats <- data %>%
     avg_fat      = mean(Fat),
     avg_protein  = mean(Protein)
   )
-
 restaurant_stats %>%
-  filter(Restaurant=="Burger King") %>%
-  pull(avg_protein)
-
+  kable(
+    digits    = 1,
+    booktabs  = TRUE,
+    col.names = c("Restaurant", "Avg Calories", "Avg Fat (g)", "Avg Protein (g)"),
+    caption   = "Table 1: Average Calories, Fat, and Protein by Restaurant"
+  ) %>%
+  kable_styling(
+    latex_options = c("striped", "hold_position"),  # adds zebra stripes & fixes float
+    full_width    = FALSE,
+    position      = "center"
+  )
 #2. Bar chart: Average Calories
 ggplot(restaurant_stats, aes(
     x = avg_calories,
@@ -122,7 +137,7 @@ ggplot(restaurant_stats, aes(
   )) +
   geom_col(fill = "#FFA07A") +
   labs(
-    title = "Average Calories by Restaurant",
+    title = "Figure 2. Average Calories by Restaurant",
     x     = "Avg Calories",
     y     = NULL
   ) +
@@ -135,7 +150,7 @@ ggplot(restaurant_stats, aes(
   )) +
   geom_col(fill = "#20B2AA") +
   labs(
-    title = "Average Fat (g) by Restaurant",
+    title = "Figure 3. Average Fat (g) by Restaurant",
     x     = "Avg Fat (g)",
     y     = NULL
   ) +
@@ -150,7 +165,7 @@ restaurant_stats %>%
   )) +
   geom_col(fill = "#778899") +
   labs(
-    title = "Average Protein (g) by Restaurant",
+    title = "Figure 4. Average Protein (g) by Restaurant",
     x = "Avg Protein (g)",
     y = NULL
   ) +
