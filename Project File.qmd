@@ -67,39 +67,50 @@ data <- read_csv("https://raw.githubusercontent.com/Stat184-Spring2025/Stat184-S
 A box plot (Figure 1) shows the **spread, median, and outliers** of calorie counts across each chain. This highlights variation—for example, KFC has wider calorie ranges due to high-calorie menu items.
 
 ```{r,echo=FALSE,warning= FALSE,message=FALSE}
-library(tidyverse)
+library(ggplot2)
+library(dplyr)
 
-#1. Calorie Distribution by Restaurant
-ggplot(data, aes(x = Restaurant, y = Calories, fill = Restaurant)) +
+# Ensure restaurants are ordered alphabetically for better readability
+data <- data %>%
+  mutate(Restaurant = factor(Restaurant, levels = sort(unique(Restaurant))))
+
+# Boxplot with improvements
+ggplot(data, aes(x = Restaurant, y = Calories)) +
   geom_boxplot() +
-  coord_flip() +                        #Horizontal boxes for readability
+  coord_flip() +  # Horizontal layout for better label readability
   theme_minimal() +
   theme(
-    legend.position = "none",           #Drop the legend
-    axis.title.x = element_text(),      
-    axis.title.y = element_text()        
+    axis.title.x = element_text(),
+    axis.title.y = element_text()
   ) +
   labs(
     x = "Restaurant",
     y = "Calories",
-    title = "Calorie Distribution by Restaurant"
+    title = "Figure 1. Boxplot of Calories by Restaurant"
   )
+
 ```
 
 ## 2. Average Calories, Fat, and Protein
 
-Table 1 summarizes **per-chain averages**. Bar charts (Figures 2–4) compare each metric:
+Table 1 summarizes **per-chain averages**. Key takeaways from **Figure 2**, which presents a **faceted bar chart** of average calories, fat, and protein by restaurant:
 
--   Figure 2: Avg Calories
--   Figure 3: Avg Fat (g)
--   Figure 4: Avg Protein (g)
+-   All three nutrients are shown together in a single figure using facets.
 
-Fitness-focused readers can see that Chick Fil-A and KFC rank high in average protein, while Starbucks and Domino's offer lower calorie and fat options.
+-   Restaurants are consistently ordered to make cross-nutrient comparisons easier.
+
+-   This unified design helps readers quickly assess how each chain performs nutritionally.
+
+**Insights for fitness-focused readers**:
+
+-   **Chick Fil-A** and **KFC** stand out for high average protein content.
+
+-   **Starbucks** and **Domino’s** offer relatively lower-calorie and lower-fat menu options.
 
 ```{r,echo=FALSE,warning= FALSE,message=FALSE}
 library(tidyverse)
 
-#2. Bar chart: Average Calories
+# Step 1: Calculate average stats per restaurant
 restaurant_stats <- data %>%
   group_by(Restaurant) %>%
   summarise(
@@ -108,45 +119,32 @@ restaurant_stats <- data %>%
     avg_protein  = mean(Protein, na.rm = TRUE)
   )
 
-ggplot(restaurant_stats, aes(
-    x = avg_calories,
-    y = reorder(Restaurant, avg_calories)
-  )) +
-  geom_col(fill = "#FFA07A") +
-  labs(
-    title = "Figure 2. Average Calories by Restaurant",
-    x     = "Avg Calories",
-    y     = "Restaurant"
-  ) +
-  theme_minimal()
+# Step 2: Pivot to long format for faceted plotting
+stats_long <- restaurant_stats %>%
+  pivot_longer(
+    cols = c(avg_calories, avg_fat, avg_protein),
+    names_to = "Nutrient",
+    values_to = "Value"
+  ) %>%
+  mutate(
+    Nutrient = recode(Nutrient,
+                      avg_calories = "Average Calories",
+                      avg_fat      = "Average Fat (g)",
+                      avg_protein  = "Average Protein (g)"),
+    Restaurant = factor(Restaurant, levels = sort(unique(Restaurant)))  # consistent order
+  )
 
-#3. Bar chart: Average Fat
-ggplot(restaurant_stats, aes(
-    x = avg_fat,
-    y = reorder(Restaurant, avg_fat)
-  )) +
-  geom_col(fill = "#20B2AA") +
+# Step 3: Create combined bar chart with facets
+ggplot(stats_long, aes(x = Value, y = Restaurant)) +
+  geom_col(fill = "#6495ED") +
+  facet_wrap(~ Nutrient, scales = "free_x") +
   labs(
-    title = "Figure 3. Average Fat (g) by Restaurant",
-    x     = "Avg Fat (g)",
-    y     = "Restaurant"
-  ) +
-  theme_minimal()
-
-#4. Bar chart: Average Protein
-restaurant_stats %>%
-  filter(!is.na(avg_protein)) %>%
-  ggplot(aes(
-    x = avg_protein,
-    y = reorder(Restaurant, avg_protein)
-  )) +
-  geom_col(fill = "#778899") +
-  labs(
-    title = "Figure 4. Average Protein (g) by Restaurant",
-    x = "Avg Protein (g)",
+    title = "Figures 2. Average Nutritional Values by Restaurant",
+    x = "Average Value",
     y = "Restaurant"
   ) +
   theme_minimal()
+
 ```
 
 Table 1 shows each bars' **exact** values:

@@ -79,20 +79,28 @@ data <- data %>%
 #Selection of visualization: Box Plot
 #Rationale: Shows median, IQR, and outliers at once. We care about variation in data, e.g., whether Restaurant A has a few extremely high-calorie outliers vs. Restaurant B’s consistently mid-range menu—a box plot (or violin plot) is by far the more informative choice.
 
-ggplot(data, aes(x = Restaurant, y = Calories, fill = Restaurant)) +
+library(ggplot2)
+library(dplyr)
+
+# Ensure restaurants are ordered alphabetically for better readability
+data <- data %>%
+  mutate(Restaurant = factor(Restaurant, levels = sort(unique(Restaurant))))
+
+# Boxplot with improvements
+ggplot(data, aes(x = Restaurant, y = Calories)) +
   geom_boxplot() +
-  coord_flip() +                        # horizontal boxes for readability
+  coord_flip() +  # Horizontal layout for better label readability
   theme_minimal() +
   theme(
-    legend.position = "none",           # drop the legend
-    axis.title.x     = element_text(), 
-    axis.title.y     = element_blank()
+    axis.title.x = element_text(),
+    axis.title.y = element_text()
   ) +
   labs(
-    x = NULL,
+    x = "Restaurant",
     y = "Calories",
-    title = "Calorie Distribution by Restaurant"
+    title = "Boxplot of Calories by Restaurant"
   )
+
 
 #Question 2 -----------------------------------------------------------
 #Do different restaurants differ in how healthy their items are (based on calories, fat, and protein)?
